@@ -30,3 +30,6 @@ npm-debug.log*
 
 # Cloudflare Pages
 .wrangler/
+
+# Claude Code project config (local only)
+.claude/
