@@ -1,0 +1,74 @@
+<header class="sticky top-0 z-50 bg-white border-b border-base-muted shadow-sm" x-data="{ open: false }">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+
+      {{- /* Logo */}}
+      <a href="{{ "/" | relLangURL }}" class="flex items-center space-x-2 flex-shrink-0">
+        <span class="text-primary font-bold text-lg leading-tight">
+          {{- if eq .Language.Lang "ja" -}}
+          量子ナノデバイス<br class="hidden sm:block">研究グループ
+          {{- else -}}
+          QND Research<br class="hidden sm:block">Group
+          {{- end -}}
+        </span>
+      </a>
+
+      {{- /* Desktop nav */}}
+      <nav class="hidden md:flex items-center space-x-6" aria-label="Main navigation">
+        {{ $currentPage := . }}
+        {{ range .Site.Menus.main }}
+        <a href="{{ .URL }}" class="nav-link text-sm{{ if $currentPage.IsMenuCurrent "main" . }} nav-link-active{{ end }}">
+          {{ .Name }}
+        </a>
+        {{ end }}
+      </nav>
+
+      {{- /* Language toggle + hamburger */}}
+      <div class="flex items-center space-x-4">
+        {{- /* Language toggle */}}
+        <div class="flex items-center border border-base-muted rounded-full overflow-hidden text-sm font-medium">
+          {{ range .AllTranslations }}
+          <a href="{{ .Permalink }}"
+             class="px-3 py-1 {{ if eq . $.Page }}bg-primary text-white{{ else }}text-accent hover:bg-base-light{{ end }} transition-colors duration-150"
+             lang="{{ .Language.Lang }}"
+             hreflang="{{ .Language.Lang }}"
+             aria-label="Switch to {{ .Language.Lang }}">
+            {{ upper .Language.Lang }}
+          </a>
+          {{ end }}
+        </div>
+
+        {{- /* Hamburger (mobile) */}}
+        <button class="md:hidden p-2 rounded-lg hover:bg-base-light transition-colors"
+                @click="open = !open"
+                aria-label="Toggle navigation menu"
+                :aria-expanded="open.toString()">
+          <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  :d="open ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    {{- /* Mobile nav */}}
+    <nav x-show="open"
+         x-transition:enter="transition ease-out duration-150"
+         x-transition:enter-start="opacity-0 -translate-y-2"
+         x-transition:enter-end="opacity-100 translate-y-0"
+         x-transition:leave="transition ease-in duration-100"
+         x-transition:leave-start="opacity-100 translate-y-0"
+         x-transition:leave-end="opacity-0 -translate-y-2"
+         class="md:hidden pb-4 border-t border-base-muted mt-2 pt-4 space-y-2"
+         aria-label="Mobile navigation">
+      {{ range .Site.Menus.main }}
+      <a href="{{ .URL }}" class="block py-2 nav-link text-base" @click="open = false">
+        {{ .Name }}
+      </a>
+      {{ end }}
+    </nav>
+  </div>
+</header>
+
+{{- /* Alpine.js for hamburger menu */}}
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>

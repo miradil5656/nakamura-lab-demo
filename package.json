@@ -1,0 +1,16 @@
+{
+  "name": "qnd-lab-website",
+  "version": "0.0.1.0",
+  "description": "千葉大学 量子ナノデバイス研究グループ ホームページ",
+  "scripts": {
+    "build": "hugo --minify",
+    "dev": "hugo server --disableFastRender",
+    "preview": "hugo server --baseURL $CF_PAGES_URL --disableFastRender"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17",
+    "postcss": "^8.5.3",
+    "postcss-cli": "^11.0.1",
+    "autoprefixer": "^10.4.21"
+  }
+}
