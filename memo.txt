@@ -1,0 +1,4 @@
+こう打てば一発で再開できる:
+/plan-eng-review @docs/IMPLEMENTATION_PLAN.md
+
+このプロジェクトで勉強できるものも書いて欲しいので、MDファイルとしてこちらのフォルダに保存してください
