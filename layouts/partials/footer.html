@@ -1,0 +1,59 @@
+<footer class="bg-accent text-white mt-16">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      {{- /* Lab info */}}
+      <div>
+        <h3 class="font-bold text-lg mb-3 text-white">
+          {{- if eq .Language.Lang "ja" -}}
+          量子ナノデバイス研究グループ
+          {{- else -}}
+          Quantum Nanodevice Research Group
+          {{- end -}}
+        </h3>
+        <p class="text-gray-300 text-sm leading-relaxed">
+          {{- if eq .Language.Lang "ja" -}}
+          千葉大学大学院融合理工学府<br>先進理化学専攻 物質科学コース
+          {{- else -}}
+          Graduate School of Science and Engineering<br>Chiba University
+          {{- end -}}
+        </p>
+      </div>
+
+      {{- /* Navigation */}}
+      <div>
+        <h3 class="font-bold text-sm uppercase tracking-wider mb-3 text-gray-400">
+          {{- if eq .Language.Lang "ja" }}サイトマップ{{ else }}Site Map{{ end -}}
+        </h3>
+        <ul class="space-y-2 text-sm text-gray-300">
+          {{ range .Site.Menus.main }}
+          <li><a href="{{ .URL }}" class="hover:text-white transition-colors">{{ .Name }}</a></li>
+          {{ end }}
+        </ul>
+      </div>
+
+      {{- /* Contact */}}
+      <div>
+        <h3 class="font-bold text-sm uppercase tracking-wider mb-3 text-gray-400">
+          {{- if eq .Language.Lang "ja" }}連絡先{{ else }}Contact{{ end -}}
+        </h3>
+        <address class="not-italic text-sm text-gray-300 space-y-1">
+          <p>{{- if eq .Language.Lang "ja" -}}〒263-8522 千葉県千葉市稲毛区弥生町1-33{{- else -}}1-33 Yayoi-cho, Inage-ku, Chiba-shi, Chiba 263-8522, Japan{{- end -}}</p>
+          <p>aoki<span class="select-none" aria-hidden="true">_at_</span>faculty.chiba-u.jp</p>
+        </address>
+        <div class="mt-4 flex space-x-3">
+          {{ range .AllTranslations }}
+          <a href="{{ .Permalink }}" class="text-xs text-gray-400 hover:text-white transition-colors"
+             lang="{{ .Language.Lang }}">
+            {{ upper .Language.Lang }}
+          </a>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-8 pt-8 border-t border-gray-700 text-center text-xs text-gray-500">
+      &copy; {{ now.Year }} Quantum Nanodevice Research Group, Chiba University. All rights reserved.
+    </div>
+  </div>
+</footer>

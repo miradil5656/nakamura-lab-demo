@@ -1,0 +1,109 @@
+baseURL = "https://adv.chiba-u.jp/nano/qnd/"
+title = "量子ナノデバイス研究グループ — 千葉大学"
+defaultContentLanguage = "ja"
+defaultContentLanguageInSubdir = false
+enableRobotsTXT = true
+
+[languages.ja]
+  weight = 1
+  languageCode = "ja"
+  title = "量子ナノデバイス研究グループ — 千葉大学"
+
+[languages.en]
+  weight = 2
+  languageCode = "en"
+  contentDir = "content/en"
+  title = "Quantum Nanodevice Research Group — Chiba University"
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
+  page = ["HTML"]
+
+[sitemap]
+  changefreq = "monthly"
+  priority = 0.5
+
+[params]
+  description = "千葉大学 量子ナノデバイス研究グループ（青木研究室）の公式サイト。量子ドット、グラフェン量子輸送、TMDデバイスの研究を行っています。"
+  description_en = "Official site of the Quantum Nanodevice Research Group (Aoki Lab), Chiba University. Research on quantum dots, graphene quantum transport, and TMD devices."
+  author = "青木 伸之 (Nobuyuki Aoki)"
+  og_image = "/images/og/og-default.jpg"
+
+[module]
+  [module.hugoVersion]
+    extended = true
+    min = "0.128.0"
+
+[[languages.ja.menus.main]]
+  name = "ホーム"
+  url = "/"
+  weight = 1
+
+[[languages.ja.menus.main]]
+  name = "研究内容"
+  url = "/research/"
+  weight = 2
+
+[[languages.ja.menus.main]]
+  name = "メンバー"
+  url = "/members/"
+  weight = 3
+
+[[languages.ja.menus.main]]
+  name = "業績"
+  url = "/publications/"
+  weight = 4
+
+[[languages.ja.menus.main]]
+  name = "設備"
+  url = "/facilities/"
+  weight = 5
+
+[[languages.ja.menus.main]]
+  name = "ニュース"
+  url = "/news/"
+  weight = 6
+
+[[languages.ja.menus.main]]
+  name = "アクセス"
+  url = "/access/"
+  weight = 7
+
+[[languages.en.menus.main]]
+  name = "Home"
+  url = "/en/"
+  weight = 1
+
+[[languages.en.menus.main]]
+  name = "Research"
+  url = "/en/research/"
+  weight = 2
+
+[[languages.en.menus.main]]
+  name = "Members"
+  url = "/en/members/"
+  weight = 3
+
+[[languages.en.menus.main]]
+  name = "Publications"
+  url = "/en/publications/"
+  weight = 4
+
+[[languages.en.menus.main]]
+  name = "Facilities"
+  url = "/en/facilities/"
+  weight = 5
+
+[[languages.en.menus.main]]
+  name = "News"
+  url = "/en/news/"
+  weight = 6
+
+[[languages.en.menus.main]]
+  name = "Access"
+  url = "/en/access/"
+  weight = 7

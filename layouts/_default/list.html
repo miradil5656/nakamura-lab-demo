@@ -1,0 +1,13 @@
+{{ define "main" }}
+<section class="max-w-6xl mx-auto px-4 py-12">
+  <h1 class="section-title">{{ .Title }}</h1>
+  <ul class="space-y-4">
+    {{ range .Pages }}
+    <li>
+      <a href="{{ .RelPermalink }}" class="nav-link text-lg font-medium">{{ .Title }}</a>
+      {{ if .Date }}<span class="text-sm text-gray-500 ml-2">{{ .Date.Format "2006-01-02" }}</span>{{ end }}
+    </li>
+    {{ end }}
+  </ul>
+</section>
+{{ end }}
