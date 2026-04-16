@@ -1,10 +1,13 @@
 {{ define "main" }}
-<section class="min-h-[60vh] flex items-center justify-center py-24">
+<section style="background:#f5f5f7;color:#1d1d1f" class="min-h-[70vh] flex items-center justify-center py-24">
   <div class="text-center max-w-lg mx-auto px-4">
-    <p class="text-6xl font-bold text-primary mb-4">404</p>
-    <h1 class="text-2xl font-bold text-accent mb-4">{{ i18n "404_heading" }}</h1>
-    <p class="text-gray-600 mb-8">{{ i18n "404_body" }}</p>
-    <a href="{{ "/" | relLangURL }}" class="btn-primary">
+    <p class="font-display font-semibold text-cu-green mb-2"
+       style="font-size:4rem;line-height:1;letter-spacing:-0.28px">404</p>
+    <h1 class="section-title mb-4">{{ i18n "404_heading" }}</h1>
+    <p class="mb-10" style="font-size:0.9375rem;line-height:1.47;letter-spacing:-0.022em;color:rgba(0,0,0,0.6)">
+      {{ i18n "404_body" }}
+    </p>
+    <a href="{{ "/" | relLangURL }}" class="btn-pill">
       {{ i18n "404_home_link" }}
     </a>
   </div>

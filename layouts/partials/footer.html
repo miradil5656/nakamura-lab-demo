@@ -1,37 +1,54 @@
-<footer class="bg-accent text-white mt-16">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<footer style="background-color:#1d1d1f; color:rgba(255,255,255,0.6)">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
 
-      {{- /* Lab info */}}
-      <div>
-        <h3 class="font-bold text-lg mb-3 text-white">{{ i18n "footer_lab_name" }}</h3>
-        <p class="text-gray-300 text-sm leading-relaxed">{{ i18n "footer_affiliation" }}</p>
+    {{- /* Top row: lab name + nav links */}}
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-white/10">
+
+      {{- /* Lab identity */}}
+      <div class="md:col-span-1">
+        <p class="text-white font-semibold text-sm mb-2" style="letter-spacing:-0.022em">
+          {{ i18n "footer_lab_name" }}
+        </p>
+        <p class="text-xs leading-relaxed" style="letter-spacing:-0.010em">
+          {{ i18n "footer_affiliation" }}
+        </p>
       </div>
 
-      {{- /* Navigation */}}
-      <div>
-        <h3 class="font-bold text-sm uppercase tracking-wider mb-3 text-gray-400">
-          {{ i18n "footer_sitemap" }}
-        </h3>
-        <ul class="space-y-2 text-sm text-gray-300">
+      {{- /* Site map */}}
+      <div class="md:col-span-1">
+        <p class="text-white/40 text-xs uppercase tracking-widest mb-3">{{ i18n "footer_sitemap" }}</p>
+        <ul class="space-y-2">
           {{ range .Site.Menus.main }}
-          <li><a href="{{ .URL }}" class="hover:text-white transition-colors">{{ .Name }}</a></li>
+          <li>
+            <a href="{{ .URL }}"
+               class="text-xs hover:text-white transition-colors duration-150"
+               style="letter-spacing:-0.010em">
+              {{ .Name }}
+            </a>
+          </li>
           {{ end }}
         </ul>
       </div>
 
       {{- /* Contact */}}
-      <div>
-        <h3 class="font-bold text-sm uppercase tracking-wider mb-3 text-gray-400">
-          {{ i18n "footer_contact" }}
-        </h3>
-        <address class="not-italic text-sm text-gray-300 space-y-1">
+      <div class="md:col-span-1">
+        <p class="text-white/40 text-xs uppercase tracking-widest mb-3">{{ i18n "footer_contact" }}</p>
+        <address class="not-italic text-xs leading-relaxed space-y-1" style="letter-spacing:-0.010em">
           <p>{{ i18n "footer_address" }}</p>
-          <p>aoki<span class="select-none" aria-hidden="true">_at_</span>faculty.chiba-u.jp</p>
+          <p>
+            aoki<span class="select-none" aria-hidden="true">_at_</span>faculty.chiba-u.jp
+          </p>
         </address>
-        <div class="mt-4 flex space-x-3">
+      </div>
+
+      {{- /* Language */}}
+      <div class="md:col-span-1">
+        <p class="text-white/40 text-xs uppercase tracking-widest mb-3">Language</p>
+        <div class="flex items-center space-x-2">
           {{ range .AllTranslations }}
-          <a href="{{ .Permalink }}" class="text-xs text-gray-400 hover:text-white transition-colors"
+          <a href="{{ .Permalink }}"
+             class="text-xs px-3 py-1 rounded-pill border transition-colors duration-150
+                    {{ if eq . $.Page }}border-white text-white{{ else }}border-white/30 hover:text-white hover:border-white/60{{ end }}"
              lang="{{ .Language.Lang }}">
             {{ upper .Language.Lang }}
           </a>
@@ -40,8 +57,12 @@
       </div>
     </div>
 
-    <div class="mt-8 pt-8 border-t border-gray-700 text-center text-xs text-gray-500">
-      &copy; {{ now.Year }} {{ i18n "footer_lab_name" }}, {{ i18n "common_university" }}. All rights reserved.
+    {{- /* Bottom row: copyright */}}
+    <div class="pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+      <p class="text-xs" style="letter-spacing:-0.010em">
+        &copy; {{ now.Year }} {{ i18n "footer_lab_name" }}, {{ i18n "common_university" }}.
+      </p>
+      <p class="text-xs opacity-50">v{{ .Site.Params.version | default "0.2" }}</p>
     </div>
   </div>
 </footer>
