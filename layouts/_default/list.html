@@ -1,13 +1,23 @@
 {{ define "main" }}
-<section class="max-w-6xl mx-auto px-4 py-12">
-  <h1 class="section-title">{{ .Title }}</h1>
-  <ul class="space-y-4">
-    {{ range .Pages }}
-    <li>
-      <a href="{{ .RelPermalink }}" class="nav-link text-lg font-medium">{{ .Title }}</a>
-      {{ if .Date }}<span class="text-sm text-gray-500 ml-2">{{ .Date.Format "2006-01-02" }}</span>{{ end }}
-    </li>
-    {{ end }}
-  </ul>
+<section style="background:#f5f5f7;color:#1d1d1f" class="min-h-[70vh]">
+  <div class="max-w-4xl mx-auto px-4 py-20">
+    <h1 class="section-title mb-8">{{ .Title }}</h1>
+    <ul class="divide-y divide-black/5">
+      {{ range .Pages }}
+      <li class="py-4 flex gap-6 items-baseline">
+        {{ if .Date }}
+        <time class="text-xs shrink-0 w-24 mt-0.5" style="color:rgba(0,0,0,0.4);letter-spacing:-0.010em">
+          {{ .Date.Format "2006.01.02" }}
+        </time>
+        {{ end }}
+        <a href="{{ .RelPermalink }}"
+           class="link-cu"
+           style="font-size:0.9375rem;letter-spacing:-0.022em;line-height:1.47">
+          {{ .Title }}
+        </a>
+      </li>
+      {{ end }}
+    </ul>
+  </div>
 </section>
 {{ end }}

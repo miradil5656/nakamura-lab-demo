@@ -1,8 +1,16 @@
 {{ define "main" }}
-<article class="max-w-4xl mx-auto px-4 py-12">
-  <h1 class="section-title">{{ .Title }}</h1>
-  <div class="prose prose-lg max-w-none">
-    {{ .Content }}
-  </div>
-</article>
+<section style="background:#f5f5f7;color:#1d1d1f" class="min-h-[70vh]">
+  <article class="max-w-3xl mx-auto px-4 py-20">
+    <h1 class="section-title mb-2">{{ .Title }}</h1>
+    {{ if .Date }}
+    <p class="text-sm mb-8" style="color:rgba(0,0,0,0.4);letter-spacing:-0.016em">
+      {{ .Date.Format "2006 年 01 月 02 日" }}
+    </p>
+    {{ end }}
+    <div class="prose prose-lg max-w-none"
+         style="--tw-prose-body:rgba(0,0,0,0.8);--tw-prose-headings:#1d1d1f;--tw-prose-links:#006633">
+      {{ .Content }}
+    </div>
+  </article>
+</section>
 {{ end }}
