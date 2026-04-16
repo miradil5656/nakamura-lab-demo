@@ -1,0 +1,40 @@
+# i18n/en.yaml — English UI strings
+
+# Header
+header_logo_main: QND Research
+header_logo_sub: Group
+header_menu_label: Toggle navigation menu
+header_lang_switch: Switch language
+
+# Footer
+footer_lab_name: Quantum Nanodevice Research Group
+footer_affiliation: "Graduate School of Science and Engineering, Chiba University"
+footer_sitemap: Site Map
+footer_contact: Contact
+footer_address: "1-33 Yayoi-cho, Inage-ku, Chiba-shi, Chiba 263-8522, Japan"
+
+# Hero (homepage)
+hero_supertitle: Chiba University
+hero_heading_line1: Exploring Quantum
+hero_heading_line2: Nanodevices for Tomorrow
+hero_body: We explore quantum transport in graphene, 2D materials, and quantum dot devices.
+hero_cta_research: Our Research
+hero_cta_publications: Publications
+
+# Research section (homepage)
+research_section_title: Research Themes
+research_section_subtitle: We study quantum phenomena at the nanoscale to develop next-generation devices.
+research_learn_more: Learn More
+
+# News section (homepage)
+news_section_title: Latest News
+news_view_all: All news →
+news_empty: News coming soon.
+
+# 404 page
+404_heading: Page Not Found
+404_body: The page you were looking for doesn't exist or has been moved.
+404_home_link: Return to Home
+
+# Common
+common_university: Chiba University

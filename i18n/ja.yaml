@@ -1,0 +1,40 @@
+# i18n/ja.yaml — Japanese UI strings
+
+# Header
+header_logo_main: 量子ナノデバイス
+header_logo_sub: 研究グループ
+header_menu_label: ナビゲーションメニューを開閉
+header_lang_switch: "言語を切り替える"
+
+# Footer
+footer_lab_name: 量子ナノデバイス研究グループ
+footer_affiliation: "千葉大学大学院融合理工学府 先進理化学専攻 物質科学コース"
+footer_sitemap: サイトマップ
+footer_contact: 連絡先
+footer_address: "〒263-8522 千葉県千葉市稲毛区弥生町1-33"
+
+# Hero (homepage)
+hero_supertitle: 千葉大学 量子ナノデバイス研究グループ
+hero_heading_line1: 量子の世界で
+hero_heading_line2: 未来のデバイスを拓く
+hero_body: "グラフェン・2次元材料・量子ドットを使った量子トランスポートデバイスの研究に取り組んでいます。"
+hero_cta_research: 研究内容を見る
+hero_cta_publications: 論文リスト
+
+# Research section (homepage)
+research_section_title: 研究テーマ
+research_section_subtitle: 量子ナノスケールの物理現象を解明し、次世代デバイスへ応用します。
+research_learn_more: 詳細を見る
+
+# News section (homepage)
+news_section_title: 最新情報
+news_view_all: すべて見る →
+news_empty: ニュースは準備中です。
+
+# 404 page
+404_heading: ページが見つかりません
+404_body: お探しのページは存在しないか、移動した可能性があります。
+404_home_link: ホームへ戻る
+
+# Common
+common_university: 千葉大学

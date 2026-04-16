@@ -6,47 +6,31 @@
   <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
     <div class="max-w-2xl">
       <p class="text-primary-light text-sm font-semibold uppercase tracking-widest mb-4">
-        {{- if eq .Language.Lang "ja" -}}千葉大学 量子ナノデバイス研究グループ{{- else -}}Chiba University{{- end -}}
+        {{ i18n "hero_supertitle" }}
       </p>
       <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-6">
-        {{- if eq .Language.Lang "ja" -}}
-        量子の世界で<br>未来のデバイスを拓く
-        {{- else -}}
-        Exploring Quantum<br>Nanodevices for Tomorrow
-        {{- end -}}
+        {{ i18n "hero_heading_line1" }}<br>{{ i18n "hero_heading_line2" }}
       </h1>
       <p class="text-gray-300 text-lg mb-8 leading-relaxed">
-        {{- if eq .Language.Lang "ja" -}}
-        グラフェン・2次元材料・量子ドットを使った量子トランスポートデバイスの研究に取り組んでいます。
-        {{- else -}}
-        We explore quantum transport in graphene, 2D materials, and quantum dot devices.
-        {{- end -}}
+        {{ i18n "hero_body" }}
       </p>
       <div class="flex flex-wrap gap-4">
         <a href="{{ "/research" | relLangURL }}" class="btn-primary">
-          {{- if eq .Language.Lang "ja" }}研究内容を見る{{ else }}Our Research{{ end -}}
+          {{ i18n "hero_cta_research" }}
         </a>
         <a href="{{ "/publications" | relLangURL }}" class="btn-secondary border-white text-white hover:bg-white hover:text-accent">
-          {{- if eq .Language.Lang "ja" }}論文リスト{{ else }}Publications{{ end -}}
+          {{ i18n "hero_cta_publications" }}
         </a>
       </div>
     </div>
   </div>
 </section>
 
-{{- /* Research themes — placeholder cards */}}
+{{- /* Research themes */}}
 <section class="bg-base-light py-16">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 class="section-title text-center">
-      {{- if eq .Language.Lang "ja" }}研究テーマ{{ else }}Research Themes{{ end -}}
-    </h2>
-    <p class="section-subtitle text-center">
-      {{- if eq .Language.Lang "ja" -}}
-      量子ナノスケールの物理現象を解明し、次世代デバイスへ応用します。
-      {{- else -}}
-      We study quantum phenomena at the nanoscale to develop next-generation devices.
-      {{- end -}}
-    </p>
+    <h2 class="section-title text-center">{{ i18n "research_section_title" }}</h2>
+    <p class="section-subtitle text-center">{{ i18n "research_section_subtitle" }}</p>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       {{ $themes := slice
         (dict "icon" "⬡" "title_ja" "ファンデルワールスヘテロ接合" "title_en" "vdW Heterostructures" "desc_ja" "原子層材料を積層した量子デバイス" "desc_en" "Quantum devices from stacked 2D atomic layers")
@@ -68,21 +52,19 @@
     </div>
     <div class="text-center mt-8">
       <a href="{{ "/research" | relLangURL }}" class="btn-secondary">
-        {{- if eq .Language.Lang "ja" }}詳細を見る{{ else }}Learn More{{ end -}}
+        {{ i18n "research_learn_more" }}
       </a>
     </div>
   </div>
 </section>
 
-{{- /* Latest news placeholder */}}
+{{- /* Latest news */}}
 <section class="py-16">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between mb-8">
-      <h2 class="section-title mb-0">
-        {{- if eq .Language.Lang "ja" }}最新情報{{ else }}Latest News{{ end -}}
-      </h2>
+      <h2 class="section-title mb-0">{{ i18n "news_section_title" }}</h2>
       <a href="{{ "/news" | relLangURL }}" class="nav-link text-sm">
-        {{- if eq .Language.Lang "ja" }}すべて見る →{{ else }}All news →{{ end -}}
+        {{ i18n "news_view_all" }}
       </a>
     </div>
     <div class="space-y-4">
@@ -93,9 +75,7 @@
         <a href="{{ .RelPermalink }}" class="nav-link text-sm font-medium">{{ .Title }}</a>
       </article>
       {{ else }}
-      <p class="text-gray-500 text-sm italic">
-        {{- if eq .Language.Lang "ja" }}ニュースは準備中です。{{ else }}News coming soon.{{ end -}}
-      </p>
+      <p class="text-gray-500 text-sm italic">{{ i18n "news_empty" }}</p>
       {{ end }}
     </div>
   </div>
