@@ -4,6 +4,26 @@ All notable changes to this project are documented here.
 
 ---
 
+## [0.2.0.0] - 2026-04-16
+
+### Added
+- `i18n/ja.yaml` and `i18n/en.yaml` with full translation key set for all UI strings
+  — header, footer, hero, research themes section, news section, 404 page
+- `layouts/404.html`: bilingual 404 page wired to i18n keys
+- `static/admin/index.html` + `static/admin/config.yml`: Decap CMS v3 via CDN
+  — Collections: `news` (JP), `news_en` (EN), `publications`, `members`, `facilities`
+  — File collections for YAML-backed data; GitHub backend on `main` branch
+
+### Changed
+- `layouts/partials/header.html`: replaced inline `{{ if eq .Language.Lang "ja" }}` conditionals with `{{ i18n "key" }}`
+- `layouts/partials/footer.html`: same — all strings now pulled from i18n files
+- `layouts/index.html`: hero, research section, news section all use i18n keys
+
+### Verified
+- `hugo --minify` builds with zero errors: 12 JP pages, 8 EN pages
+
+---
+
 ## [0.1.0.0] - 2026-04-16
 
 ### Added
