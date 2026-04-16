@@ -1,0 +1,149 @@
+{{ define "main" }}
+
+{{- /* ── Hero ──────────────────────────────────────────────────────────── */}}
+<section style="background:#000;color:#fff" class="pt-28 pb-16 text-center">
+  <div class="max-w-3xl mx-auto px-4">
+    <p class="text-xs font-semibold uppercase tracking-widest mb-4" style="color:#3aaa70;letter-spacing:0.12em">
+      {{- if eq .Language.Lang "ja" }}メンバー{{ else }}Members{{ end -}}
+    </p>
+    <h1 class="font-display font-semibold text-white"
+        style="font-size:clamp(2rem,4.5vw,3rem);line-height:1.07;letter-spacing:-0.28px">
+      {{- if eq .Language.Lang "ja" -}}
+      量子ナノデバイス<br>研究グループ
+      {{- else -}}
+      Quantum Nanodevice<br>Research Group
+      {{- end -}}
+    </h1>
+  </div>
+</section>
+
+{{- /* ── Staff ────────────────────────────────────────────────────────── */}}
+<section style="background:#f5f5f7;color:#1d1d1f" class="py-20">
+  <div class="max-w-4xl mx-auto px-4">
+    <h2 class="section-title mb-10">
+      {{- if eq .Language.Lang "ja" }}教職員{{ else }}Faculty & Staff{{ end -}}
+    </h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      {{ range .Site.Data.members.staff }}
+      {{ if not (or (eq .name_ja "（助教 氏名）") (eq .name_en "(Assistant Professor Name)")) }}
+      <div class="card flex gap-5 items-start">
+        {{- /* Photo placeholder */}}
+        <div class="shrink-0 w-16 h-16 rounded-full overflow-hidden flex items-center justify-center"
+             style="background:#e8e8ed;min-width:4rem">
+          {{ if .photo }}
+          <img src="{{ .photo }}" alt="{{ if eq $.Language.Lang "ja" }}{{ .name_ja }}{{ else }}{{ .name_en }}{{ end }}" class="w-full h-full object-cover">
+          {{ else }}
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle cx="12" cy="8" r="4" stroke="#aaa" stroke-width="1.5"/>
+            <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#aaa" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          {{ end }}
+        </div>
+        <div>
+          <p class="font-display font-semibold mb-0.5"
+             style="font-size:1.0625rem;line-height:1.3;letter-spacing:normal;color:#1d1d1f">
+            {{- if eq $.Language.Lang "ja" }}{{ .name_ja }}{{ else }}{{ .name_en }}{{ end -}}
+          </p>
+          <p class="mb-2" style="font-size:0.875rem;color:#006633;font-weight:500">
+            {{- if eq $.Language.Lang "ja" }}{{ .title_ja }}{{ else }}{{ .title_en }}{{ end -}}
+          </p>
+          {{ if .email }}
+          <p style="font-size:0.8125rem;color:rgba(0,0,0,0.5);margin-bottom:0.25rem">
+            {{- .email -}}
+          </p>
+          {{ end }}
+          {{ if .research_ja }}
+          <p style="font-size:0.8125rem;line-height:1.5;color:rgba(0,0,0,0.6)">
+            {{- if eq $.Language.Lang "ja" }}{{ .research_ja }}{{ else }}{{ .research_en }}{{ end -}}
+          </p>
+          {{ end }}
+        </div>
+      </div>
+      {{ end }}
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+{{- /* ── Students ──────────────────────────────────────────────────────── */}}
+<section style="background:#000;color:#fff" class="py-20">
+  <div class="max-w-4xl mx-auto px-4">
+    <h2 class="section-title text-white mb-10">
+      {{- if eq .Language.Lang "ja" }}大学院生{{ else }}Graduate Students{{ end -}}
+    </h2>
+
+    <div class="divide-y divide-white/10">
+      {{ range .Site.Data.members.students }}
+      {{ if not (or (eq .name_ja "（博士課程学生）") (eq .name_ja "（修士課程学生）")) }}
+      <div class="flex items-baseline gap-6 py-4">
+        <span class="text-xs shrink-0 w-8 font-mono" style="color:#3aaa70">{{ .grade }}</span>
+        <span style="font-size:0.9375rem;letter-spacing:-0.016em">
+          {{- if eq $.Language.Lang "ja" }}{{ .name_ja }}{{ else }}{{ .name_en }}{{ end -}}
+        </span>
+      </div>
+      {{ else }}
+      <div class="flex items-baseline gap-6 py-4">
+        <span class="text-xs shrink-0 w-8 font-mono" style="color:#3aaa70">{{ .grade }}</span>
+        <span style="font-size:0.9375rem;letter-spacing:-0.016em;color:rgba(255,255,255,0.35)">
+          {{- if eq $.Language.Lang "ja" }}（メンバー募集中）{{ else }}(To be announced){{ end -}}
+        </span>
+      </div>
+      {{ end }}
+      {{ end }}
+    </div>
+
+    {{- /* Recruiting note */}}
+    <div class="mt-12 card-dark">
+      <p style="font-size:0.9375rem;line-height:1.6;letter-spacing:-0.016em;color:rgba(255,255,255,0.7)">
+        {{- if eq .Language.Lang "ja" -}}
+        当研究グループでは大学院生・研究生を随時受け付けています。詳しくは
+        <a href="{{ "/access" | relLangURL }}" class="link-cu-dark">アクセス・連絡先</a>
+        よりお問い合わせください。
+        {{- else -}}
+        We welcome inquiries from prospective graduate students and researchers. Please contact us via the
+        <a href="{{ "/access" | relLangURL }}" class="link-cu-dark">Access &amp; Contact</a>
+        page.
+        {{- end -}}
+      </p>
+    </div>
+  </div>
+</section>
+
+{{- /* ── Alumni ────────────────────────────────────────────────────────── */}}
+{{ if .Site.Data.members.alumni }}
+<section style="background:#f5f5f7;color:#1d1d1f" class="py-20">
+  <div class="max-w-4xl mx-auto px-4">
+    <h2 class="section-title mb-10">
+      {{- if eq .Language.Lang "ja" }}卒業生・修了生{{ else }}Alumni{{ end -}}
+    </h2>
+
+    <div class="divide-y divide-black/10">
+      {{ range .Site.Data.members.alumni }}
+      {{ if not (eq .name_ja "（卒業生）") }}
+      <div class="flex items-baseline justify-between gap-4 py-4">
+        <div class="flex items-baseline gap-4">
+          <span class="text-xs shrink-0 font-mono" style="color:#006633">{{ .year }}</span>
+          <span style="font-size:0.9375rem;letter-spacing:-0.016em">
+            {{- if eq $.Language.Lang "ja" }}{{ .name_ja }}{{ else }}{{ .name_en }}{{ end -}}
+          </span>
+        </div>
+        <div class="text-right shrink-0">
+          <span style="font-size:0.8125rem;color:rgba(0,0,0,0.5)">
+            {{- if eq $.Language.Lang "ja" }}{{ .degree_ja }}{{ else }}{{ .degree_en }}{{ end -}}
+          </span>
+          {{ if .destination_ja }}
+          <p style="font-size:0.8125rem;color:rgba(0,0,0,0.4)">
+            {{- if eq $.Language.Lang "ja" }}{{ .destination_ja }}{{ else }}{{ .destination_en }}{{ end -}}
+          </p>
+          {{ end }}
+        </div>
+      </div>
+      {{ end }}
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{ end }}

@@ -1,0 +1,46 @@
+## data/members.yaml — 量子ナノデバイス研究グループ メンバーデータ
+## 更新方法: このファイルを直接編集してください。
+
+staff:
+  - name_ja: "青木 伸之"
+    name_en: "Nobuyuki Aoki"
+    title_ja: "教授"
+    title_en: "Professor"
+    email: "aoki_at_faculty.chiba-u.jp"
+    research_ja: "量子ナノデバイス、グラフェン量子輸送、2次元材料"
+    research_en: "Quantum nanodevices, graphene quantum transport, 2D materials"
+    photo: ""
+
+  - name_ja: "（助教 氏名）"
+    name_en: "(Assistant Professor Name)"
+    title_ja: "助教"
+    title_en: "Assistant Professor"
+    email: ""
+    research_ja: "（研究テーマ）"
+    research_en: "(Research theme)"
+    photo: ""
+
+students:
+  - name_ja: "（博士課程学生）"
+    name_en: "(Doctoral Student)"
+    grade: "D3"
+    year: 2024
+
+  - name_ja: "（修士課程学生）"
+    name_en: "(Master's Student)"
+    grade: "M2"
+    year: 2025
+
+  - name_ja: "（修士課程学生）"
+    name_en: "(Master's Student)"
+    grade: "M1"
+    year: 2025
+
+alumni:
+  - name_ja: "（卒業生）"
+    name_en: "(Graduate)"
+    degree_ja: "博士"
+    degree_en: "Ph.D."
+    year: 2024
+    destination_ja: "（就職先・進学先）"
+    destination_en: "(Employment / Graduate school)"

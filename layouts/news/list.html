@@ -1,0 +1,65 @@
+{{ define "main" }}
+
+{{- /* ── Hero ──────────────────────────────────────────────────────────── */}}
+<section style="background:#000;color:#fff" class="pt-28 pb-16 text-center">
+  <div class="max-w-3xl mx-auto px-4">
+    <p class="text-xs font-semibold uppercase tracking-widest mb-4" style="color:#3aaa70;letter-spacing:0.12em">
+      {{- if eq .Language.Lang "ja" }}ニュース{{ else }}News{{ end -}}
+    </p>
+    <h1 class="font-display font-semibold text-white"
+        style="font-size:clamp(2rem,4.5vw,3rem);line-height:1.07;letter-spacing:-0.28px">
+      {{- if eq .Language.Lang "ja" -}}
+      最新情報
+      {{- else -}}
+      Latest Updates
+      {{- end -}}
+    </h1>
+  </div>
+</section>
+
+{{- /* ── News list ────────────────────────────────────────────────────── */}}
+<section style="background:#f5f5f7;color:#1d1d1f" class="py-20">
+  <div class="max-w-3xl mx-auto px-4">
+
+    {{ $news := where .Site.RegularPages "Section" "news" }}
+    {{ if $news }}
+    <div class="divide-y divide-black/10">
+      {{ range $news }}
+      <article class="py-7">
+        <div class="flex flex-wrap items-center gap-3 mb-2">
+          <time style="font-size:0.8125rem;color:rgba(0,0,0,0.4);letter-spacing:-0.010em">
+            {{ .Date.Format "2006.01.02" }}
+          </time>
+          {{ range .Params.categories }}
+          <span class="text-xs px-2 py-0.5 rounded-full"
+                style="background:rgba(0,102,51,0.08);color:#006633;font-weight:500">
+            {{ . }}
+          </span>
+          {{ end }}
+        </div>
+        <h2 class="font-display font-medium mb-2"
+            style="font-size:1.0625rem;line-height:1.4;letter-spacing:normal">
+          <a href="{{ .RelPermalink }}" class="link-cu" style="font-size:inherit">{{ .Title }}</a>
+        </h2>
+        {{ if .Summary }}
+        <p style="font-size:0.9375rem;line-height:1.6;color:rgba(0,0,0,0.55);letter-spacing:-0.016em">
+          {{ .Summary | plainify | truncate 120 }}
+        </p>
+        {{ end }}
+      </article>
+      {{ end }}
+    </div>
+    {{ else }}
+    <p style="font-size:0.9375rem;color:rgba(0,0,0,0.4);text-align:center;padding:3rem 0">
+      {{- if eq .Language.Lang "ja" -}}
+      現在、掲載できるニュースはありません。
+      {{- else -}}
+      No news items available at this time.
+      {{- end -}}
+    </p>
+    {{ end }}
+
+  </div>
+</section>
+
+{{ end }}

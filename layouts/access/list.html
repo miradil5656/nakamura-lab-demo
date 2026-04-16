@@ -1,0 +1,174 @@
+{{ define "main" }}
+
+{{- /* ── Hero ──────────────────────────────────────────────────────────── */}}
+<section style="background:#000;color:#fff" class="pt-28 pb-16 text-center">
+  <div class="max-w-3xl mx-auto px-4">
+    <p class="text-xs font-semibold uppercase tracking-widest mb-4" style="color:#3aaa70;letter-spacing:0.12em">
+      {{- if eq .Language.Lang "ja" }}アクセス・連絡先{{ else }}Access & Contact{{ end -}}
+    </p>
+    <h1 class="font-display font-semibold text-white"
+        style="font-size:clamp(2rem,4.5vw,3rem);line-height:1.07;letter-spacing:-0.28px">
+      {{- if eq .Language.Lang "ja" -}}
+      千葉大学<br>西千葉キャンパス
+      {{- else -}}
+      Chiba University<br>Nishi-Chiba Campus
+      {{- end -}}
+    </h1>
+  </div>
+</section>
+
+{{- /* ── Address & Contact ────────────────────────────────────────────── */}}
+<section style="background:#f5f5f7;color:#1d1d1f" class="py-20">
+  <div class="max-w-4xl mx-auto px-4">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+
+      {{- /* Contact info */}}
+      <div>
+        <h2 class="section-title mb-8">
+          {{- if eq .Language.Lang "ja" }}連絡先{{ else }}Contact{{ end -}}
+        </h2>
+
+        <div class="space-y-6">
+          <div class="card">
+            <p class="text-xs font-semibold uppercase tracking-wider mb-3" style="color:#006633;letter-spacing:0.08em">
+              {{- if eq .Language.Lang "ja" }}研究室{{ else }}Laboratory{{ end -}}
+            </p>
+            <p class="font-display font-semibold mb-1"
+               style="font-size:1.0625rem;letter-spacing:normal;color:#1d1d1f">
+              {{- if eq .Language.Lang "ja" -}}
+              量子ナノデバイス研究グループ（青木研究室）
+              {{- else -}}
+              Quantum Nanodevice Group (Aoki Lab)
+              {{- end -}}
+            </p>
+            <p style="font-size:0.9375rem;line-height:1.7;color:rgba(0,0,0,0.6)">
+              {{- if eq .Language.Lang "ja" -}}
+              千葉大学 大学院融合理工学府<br>
+              先進理化学専攻 物質科学コース
+              {{- else -}}
+              Graduate School of Science and Engineering<br>
+              Department of Advanced Materials Science, Chiba University
+              {{- end -}}
+            </p>
+          </div>
+
+          <div class="card">
+            <p class="text-xs font-semibold uppercase tracking-wider mb-3" style="color:#006633;letter-spacing:0.08em">
+              {{- if eq .Language.Lang "ja" }}所在地{{ else }}Address{{ end -}}
+            </p>
+            <p style="font-size:0.9375rem;line-height:1.7;color:rgba(0,0,0,0.7)">
+              {{- if eq .Language.Lang "ja" -}}
+              〒263-8522<br>
+              千葉市稲毛区弥生町1-33<br>
+              千葉大学 西千葉キャンパス<br>
+              理学系総合研究棟
+              {{- else -}}
+              Science Research Building<br>
+              Chiba University, Nishi-Chiba Campus<br>
+              1-33 Yayoi-cho, Inage-ku<br>
+              Chiba 263-8522, Japan
+              {{- end -}}
+            </p>
+          </div>
+
+          <div class="card">
+            <p class="text-xs font-semibold uppercase tracking-wider mb-3" style="color:#006633;letter-spacing:0.08em">
+              {{- if eq .Language.Lang "ja" }}メール{{ else }}Email{{ end -}}
+            </p>
+            <p style="font-size:0.9375rem;color:rgba(0,0,0,0.7);font-family:monospace">
+              aoki_at_faculty.chiba-u.jp
+            </p>
+            <p style="font-size:0.8125rem;color:rgba(0,0,0,0.4);margin-top:0.25rem">
+              {{- if eq .Language.Lang "ja" -}}
+              ※ _at_ を @ に置き換えてください
+              {{- else -}}
+              Replace _at_ with @
+              {{- end -}}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {{- /* Map / Directions */}}
+      <div>
+        <h2 class="section-title mb-8">
+          {{- if eq .Language.Lang "ja" }}アクセス方法{{ else }}Directions{{ end -}}
+        </h2>
+
+        {{- /* Map placeholder — replace with actual embed when available */}}
+        <div class="card mb-6 flex items-center justify-center"
+             style="height:220px;background:#e8e8ed">
+          <div class="text-center">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" aria-hidden="true" class="mx-auto mb-2">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="#aaa" stroke-width="1.5"/>
+              <circle cx="12" cy="9" r="2.5" stroke="#aaa" stroke-width="1.5"/>
+            </svg>
+            <p style="font-size:0.8125rem;color:rgba(0,0,0,0.35)">
+              {{- if eq .Language.Lang "ja" -}}
+              地図（準備中）
+              {{- else -}}
+              Map (coming soon)
+              {{- end -}}
+            </p>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <div class="card">
+            <p class="text-xs font-semibold uppercase tracking-wider mb-2" style="color:#006633;letter-spacing:0.08em">
+              {{- if eq .Language.Lang "ja" }}電車でのアクセス{{ else }}By Train{{ end -}}
+            </p>
+            <ul style="font-size:0.9375rem;line-height:1.8;color:rgba(0,0,0,0.65)" class="space-y-1">
+              {{- if eq .Language.Lang "ja" -}}
+              <li>JR総武線「西千葉」駅より徒歩約3分</li>
+              <li>京成線「みどり台」駅より徒歩約7分</li>
+              {{- else -}}
+              <li>3 min walk from JR Sobu Line "Nishi-Chiba" Station</li>
+              <li>7 min walk from Keisei Line "Midoridai" Station</li>
+              {{- end -}}
+            </ul>
+          </div>
+
+          <div class="card">
+            <p class="text-xs font-semibold uppercase tracking-wider mb-2" style="color:#006633;letter-spacing:0.08em">
+              {{- if eq .Language.Lang "ja" }}お車でのアクセス{{ else }}By Car{{ end -}}
+            </p>
+            <p style="font-size:0.9375rem;line-height:1.7;color:rgba(0,0,0,0.65)">
+              {{- if eq .Language.Lang "ja" -}}
+              京葉道路「穴川」ICより約10分。キャンパス内に有料駐車場あり（事前申請が必要な場合があります）。
+              {{- else -}}
+              About 10 min from Keiyo Expressway "Anagawa" interchange. Paid parking available on campus (advance reservation may be required).
+              {{- end -}}
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{{- /* ── Join us ────────────────────────────────────────────────────────── */}}
+<section style="background:#000;color:#fff" class="py-16 text-center">
+  <div class="max-w-xl mx-auto px-4">
+    <h2 class="section-title text-white mb-4">
+      {{- if eq .Language.Lang "ja" -}}
+      研究室見学・入学希望の方へ
+      {{- else -}}
+      Prospective Students
+      {{- end -}}
+    </h2>
+    <p style="font-size:1.0625rem;line-height:1.6;letter-spacing:-0.022em;color:rgba(255,255,255,0.65)" class="mb-8">
+      {{- if eq .Language.Lang "ja" -}}
+      研究室見学や大学院入学をご検討の方は、まずメールにてご連絡ください。随時対応しております。
+      {{- else -}}
+      Prospective graduate students interested in joining our lab are encouraged to reach out by email. We welcome inquiries from international applicants.
+      {{- end -}}
+    </p>
+    <a href="mailto:aoki_at_faculty.chiba-u.jp" class="btn-pill-dark">
+      {{- if eq .Language.Lang "ja" }}メールで問い合わせる{{ else }}Get in touch{{ end -}}
+    </a>
+  </div>
+</section>
+
+{{ end }}

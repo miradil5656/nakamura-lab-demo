@@ -1,0 +1,216 @@
+{{ define "main" }}
+
+{{- /* ── Research hero — black, cinematic ──────────────────────────────── */}}
+<section style="background:#000;color:#fff" class="pt-28 pb-16 text-center">
+  <div class="max-w-3xl mx-auto px-4">
+    <p class="text-xs font-semibold uppercase tracking-widest mb-4" style="color:#3aaa70;letter-spacing:0.12em">
+      {{- if eq .Language.Lang "ja" }}研究内容{{ else }}Research{{ end -}}
+    </p>
+    <h1 class="font-display font-semibold text-white mb-4"
+        style="font-size:clamp(2rem,4.5vw,3rem);line-height:1.07;letter-spacing:-0.28px">
+      {{- if eq .Language.Lang "ja" -}}
+      量子ナノデバイスの<br>フロンティアを探る
+      {{- else -}}
+      Exploring the Frontiers<br>of Quantum Nanodevices
+      {{- end -}}
+    </h1>
+    <p class="text-white/70 mx-auto"
+       style="font-size:1.0625rem;line-height:1.47;letter-spacing:-0.022em;max-width:520px">
+      {{- if eq .Language.Lang "ja" -}}
+      2次元材料の量子輸送現象を研究し、次世代のナノスケール量子デバイスの実現を目指しています。
+      {{- else -}}
+      We investigate quantum transport phenomena in 2D materials toward next-generation nanoscale quantum devices.
+      {{- end -}}
+    </p>
+  </div>
+</section>
+
+{{- /* ── Theme 1: vdW Heterostructures ─────────────────────────────────── */}}
+<section style="background:#f5f5f7;color:#1d1d1f" class="py-20">
+  <div class="max-w-5xl mx-auto px-4">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color:#006633;letter-spacing:0.10em">
+          {{- if eq .Language.Lang "ja" }}研究テーマ 01{{ else }}Theme 01{{ end -}}
+        </p>
+        <h2 class="section-title mb-4">
+          {{- if eq .Language.Lang "ja" -}}
+          ファンデルワールス<br>ヘテロ接合
+          {{- else -}}
+          van der Waals<br>Heterostructures
+          {{- end -}}
+        </h2>
+        <p style="font-size:1.0625rem;line-height:1.6;letter-spacing:-0.016em;color:rgba(0,0,0,0.7)" class="mb-6">
+          {{- if eq .Language.Lang "ja" -}}
+          グラフェン、六方晶窒化ホウ素（hBN）、遷移金属ダイカルコゲナイド（TMD）などの2次元原子層材料を積層した人工量子構造（ヘテロ接合）を作製し、その量子輸送特性を研究しています。hBNに挟まれたグラフェンデバイスは、汚染のない完全な表面（クリーン界面）を持ち、電子の平均自由行程が数マイクロメートルに達する高品質なデバイスを実現します。
+          {{- else -}}
+          We fabricate van der Waals heterostructures by stacking 2D atomic layer materials such as graphene, hexagonal boron nitride (hBN), and transition metal dichalcogenides (TMDs). Graphene encapsulated between hBN layers achieves pristine, contamination-free interfaces with electron mean free paths reaching several micrometers.
+          {{- end -}}
+        </p>
+        <ul style="font-size:0.9375rem;line-height:1.7;color:rgba(0,0,0,0.6)" class="space-y-1 list-none pl-0">
+          {{- if eq .Language.Lang "ja" -}}
+          <li>— グラフェン / hBN ヘテロ接合デバイス</li>
+          <li>— 弾道輸送・バリスティックデバイス</li>
+          <li>— 原子層精度での積層・転写技術</li>
+          {{- else -}}
+          <li>— Graphene / hBN heterostructure devices</li>
+          <li>— Ballistic transport and devices</li>
+          <li>— Precise layer-by-layer stacking and transfer techniques</li>
+          {{- end -}}
+        </ul>
+      </div>
+      <div class="card flex items-center justify-center" style="min-height:280px;background:#e8e8ed">
+        <p style="font-size:0.875rem;color:rgba(0,0,0,0.3);text-align:center">
+          {{- if eq .Language.Lang "ja" -}}
+          デバイス画像（準備中）<br>SEM / 顕微鏡写真
+          {{- else -}}
+          Device image (coming soon)<br>SEM / microscope photo
+          {{- end -}}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{- /* ── Theme 2: Quantum Dots & QPCs ───────────────────────────────────── */}}
+<section style="background:#000;color:#fff" class="py-20">
+  <div class="max-w-5xl mx-auto px-4">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div class="order-2 lg:order-1 card-dark flex items-center justify-center" style="min-height:280px">
+        <p style="font-size:0.875rem;color:rgba(255,255,255,0.25);text-align:center">
+          {{- if eq .Language.Lang "ja" -}}
+          量子ドット デバイス画像（準備中）
+          {{- else -}}
+          Quantum dot device image (coming soon)
+          {{- end -}}
+        </p>
+      </div>
+      <div class="order-1 lg:order-2">
+        <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color:#3aaa70;letter-spacing:0.10em">
+          {{- if eq .Language.Lang "ja" }}研究テーマ 02{{ else }}Theme 02{{ end -}}
+        </p>
+        <h2 class="section-title text-white mb-4">
+          {{- if eq .Language.Lang "ja" -}}
+          量子ドット・<br>量子ポイントコンタクト
+          {{- else -}}
+          Quantum Dots &amp;<br>Quantum Point Contacts
+          {{- end -}}
+        </h2>
+        <p style="font-size:1.0625rem;line-height:1.6;letter-spacing:-0.016em;color:rgba(255,255,255,0.7)" class="mb-6">
+          {{- if eq .Language.Lang "ja" -}}
+          グラフェンナノ構造中の量子ポイントコンタクト（QPC）や量子ドット（QD）の電子輸送特性を詳細に研究しています。希薄なキャリア密度領域での輸送、スピン分解コンダクタンス量子化、近藤効果など、量子多体効果の探索を行っています。
+          {{- else -}}
+          We investigate electron transport in quantum point contacts (QPCs) and quantum dots (QDs) in graphene nanostructures. Research focuses on transport in dilute carrier regimes, spin-resolved conductance quantization, Kondo effect, and other quantum many-body phenomena.
+          {{- end -}}
+        </p>
+        <ul style="font-size:0.9375rem;line-height:1.7;color:rgba(255,255,255,0.5)" class="space-y-1 list-none pl-0">
+          {{- if eq .Language.Lang "ja" -}}
+          <li>— スピン分解コンダクタンス量子化</li>
+          <li>— グラフェン量子ドットの近藤効果</li>
+          <li>— ディラック点近傍の量子輸送</li>
+          {{- else -}}
+          <li>— Spin-resolved conductance quantization</li>
+          <li>— Kondo effect in graphene quantum dots</li>
+          <li>— Quantum transport near the Dirac point</li>
+          {{- end -}}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{- /* ── Theme 3: TMD Devices ─────────────────────────────────────────── */}}
+<section style="background:#f5f5f7;color:#1d1d1f" class="py-20">
+  <div class="max-w-5xl mx-auto px-4">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color:#006633;letter-spacing:0.10em">
+          {{- if eq .Language.Lang "ja" }}研究テーマ 03{{ else }}Theme 03{{ end -}}
+        </p>
+        <h2 class="section-title mb-4">
+          {{- if eq .Language.Lang "ja" -}}
+          TMDデバイス
+          {{- else -}}
+          TMD Devices
+          {{- end -}}
+        </h2>
+        <p style="font-size:1.0625rem;line-height:1.6;letter-spacing:-0.016em;color:rgba(0,0,0,0.7)" class="mb-6">
+          {{- if eq .Language.Lang "ja" -}}
+          MoTe₂をはじめとする遷移金属ダイカルコゲナイド（TMD）を用いたデバイスの研究を行っています。イオン液体ゲーティングによるアンビポーラドーピング（p型/n型の電気化学的制御）、MoTe₂ p-n接合ダイオード、TMDインバータ回路などを実現し、原子層デバイスの可能性を追求しています。
+          {{- else -}}
+          We develop devices based on transition metal dichalcogenides (TMDs), particularly MoTe₂. Research includes ambipolar doping via ionic liquid gating, MoTe₂ p–n junction diodes, and TMD-based inverter circuits, exploring the potential of atomically thin device architectures.
+          {{- end -}}
+        </p>
+        <ul style="font-size:0.9375rem;line-height:1.7;color:rgba(0,0,0,0.6)" class="space-y-1 list-none pl-0">
+          {{- if eq .Language.Lang "ja" -}}
+          <li>— MoTe₂ アンビポーラFET</li>
+          <li>— イオン液体ゲーティング</li>
+          <li>— TMD インバータ回路</li>
+          {{- else -}}
+          <li>— MoTe₂ ambipolar FETs</li>
+          <li>— Ionic liquid gating</li>
+          <li>— TMD-based inverter circuits</li>
+          {{- end -}}
+        </ul>
+      </div>
+      <div class="card flex items-center justify-center" style="min-height:280px;background:#e8e8ed">
+        <p style="font-size:0.875rem;color:rgba(0,0,0,0.3);text-align:center">
+          {{- if eq .Language.Lang "ja" -}}
+          TMDデバイス画像（準備中）
+          {{- else -}}
+          TMD device image (coming soon)
+          {{- end -}}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{- /* ── Theme 4: Scanning Probe Microscopy ─────────────────────────────── */}}
+<section style="background:#000;color:#fff" class="py-20">
+  <div class="max-w-5xl mx-auto px-4">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div class="order-2 lg:order-1 card-dark flex items-center justify-center" style="min-height:280px">
+        <p style="font-size:0.875rem;color:rgba(255,255,255,0.25);text-align:center">
+          {{- if eq .Language.Lang "ja" -}}
+          SPM 画像（準備中）
+          {{- else -}}
+          SPM image (coming soon)
+          {{- end -}}
+        </p>
+      </div>
+      <div class="order-1 lg:order-2">
+        <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color:#3aaa70;letter-spacing:0.10em">
+          {{- if eq .Language.Lang "ja" }}研究テーマ 04{{ else }}Theme 04{{ end -}}
+        </p>
+        <h2 class="section-title text-white mb-4">
+          {{- if eq .Language.Lang "ja" -}}
+          走査プローブ顕微法・<br>ナノ加工
+          {{- else -}}
+          Scanning Probe<br>Microscopy &amp; Nanofabrication
+          {{- end -}}
+        </h2>
+        <p style="font-size:1.0625rem;line-height:1.6;letter-spacing:-0.016em;color:rgba(255,255,255,0.7)" class="mb-6">
+          {{- if eq .Language.Lang "ja" -}}
+          走査プローブ顕微鏡（SPM）を用いたナノスケール構造の可視化と局所加工（ナノリソグラフィ）を行っています。SPMの探針を使ったローカルゲート操作により、グラフェンデバイスの電子構造を局所的に制御・観察する技術開発を進めています。
+          {{- else -}}
+          We use scanning probe microscopy (SPM) for nanoscale imaging and local nanofabrication (nanolithography). We develop techniques for local gating using SPM tips to control and probe the electronic structure of graphene devices at the nanoscale.
+          {{- end -}}
+        </p>
+        <ul style="font-size:0.9375rem;line-height:1.7;color:rgba(255,255,255,0.5)" class="space-y-1 list-none pl-0">
+          {{- if eq .Language.Lang "ja" -}}
+          <li>— SPM ローカルゲート操作</li>
+          <li>— 走査プローブリソグラフィ（SPL）</li>
+          <li>— ナノスケール電気特性マッピング</li>
+          {{- else -}}
+          <li>— SPM local gating</li>
+          <li>— Scanning probe lithography (SPL)</li>
+          <li>— Nanoscale electrical property mapping</li>
+          {{- end -}}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ end }}
