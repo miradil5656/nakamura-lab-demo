@@ -36,5 +36,10 @@ news_empty: News coming soon.
 404_body: The page you were looking for doesn't exist or has been moved.
 404_home_link: Return to Home
 
+# Search
+search_title: Search
+search_placeholder: Search the site…
+search_empty: No results found.
+
 # Common
 common_university: Chiba University
