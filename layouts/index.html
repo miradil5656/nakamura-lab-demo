@@ -1,83 +1,132 @@
 {{ define "main" }}
 
-{{- /* Hero section */}}
-<section class="relative bg-accent text-white overflow-hidden">
-  <div class="absolute inset-0 bg-gradient-to-br from-accent via-accent to-primary opacity-90"></div>
-  <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
-    <div class="max-w-2xl">
-      <p class="text-primary-light text-sm font-semibold uppercase tracking-widest mb-4">
-        {{ i18n "hero_supertitle" }}
-      </p>
-      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-6">
-        {{ i18n "hero_heading_line1" }}<br>{{ i18n "hero_heading_line2" }}
-      </h1>
-      <p class="text-gray-300 text-lg mb-8 leading-relaxed">
-        {{ i18n "hero_body" }}
-      </p>
-      <div class="flex flex-wrap gap-4">
-        <a href="{{ "/research" | relLangURL }}" class="btn-primary">
-          {{ i18n "hero_cta_research" }}
-        </a>
-        <a href="{{ "/publications" | relLangURL }}" class="btn-secondary border-white text-white hover:bg-white hover:text-accent">
-          {{ i18n "hero_cta_publications" }}
-        </a>
-      </div>
+{{- /* ── Hero — full-width black, product-as-hero treatment ────────────── */}}
+<section style="background:#000;color:#fff" class="pt-28 pb-24 text-center">
+  <div class="max-w-3xl mx-auto px-4">
+
+    <p class="text-xs font-semibold uppercase tracking-widest mb-4" style="color:#3aaa70;letter-spacing:0.12em">
+      {{ i18n "hero_supertitle" }}
+    </p>
+
+    <h1 class="font-display font-semibold text-white mb-4"
+        style="font-size:clamp(2.25rem,5vw,3.5rem);line-height:1.07;letter-spacing:-0.28px">
+      {{ i18n "hero_heading_line1" }}<br>{{ i18n "hero_heading_line2" }}
+    </h1>
+
+    <p class="text-white/70 mx-auto mb-10"
+       style="font-size:1.0625rem;line-height:1.47;letter-spacing:-0.022em;max-width:480px">
+      {{ i18n "hero_body" }}
+    </p>
+
+    <div class="flex flex-wrap items-center justify-center gap-4">
+      <a href="{{ "/research" | relLangURL }}" class="btn-pill-dark">
+        {{ i18n "hero_cta_research" }}
+      </a>
+      <a href="{{ "/publications" | relLangURL }}" class="btn-primary">
+        {{ i18n "hero_cta_publications" }}
+      </a>
+    </div>
+
+    {{- /* Scroll indicator */}}
+    <div class="mt-16 flex justify-center opacity-30">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <path d="M10 4v12M4 10l6 6 6-6" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
     </div>
   </div>
 </section>
 
-{{- /* Research themes */}}
-<section class="bg-base-light py-16">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 class="section-title text-center">{{ i18n "research_section_title" }}</h2>
-    <p class="section-subtitle text-center">{{ i18n "research_section_subtitle" }}</p>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+{{- /* ── Research themes — #f5f5f7 light section ──────────────────────── */}}
+<section style="background:#f5f5f7;color:#1d1d1f" class="py-20">
+  <div class="max-w-5xl mx-auto px-4 text-center">
+
+    <h2 class="section-title">{{ i18n "research_section_title" }}</h2>
+    <p class="section-subtitle" style="color:rgba(0,0,0,0.6);max-width:500px;margin-left:auto;margin-right:auto">
+      {{ i18n "research_section_subtitle" }}
+    </p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mt-10">
       {{ $themes := slice
-        (dict "icon" "⬡" "title_ja" "ファンデルワールスヘテロ接合" "title_en" "vdW Heterostructures" "desc_ja" "原子層材料を積層した量子デバイス" "desc_en" "Quantum devices from stacked 2D atomic layers")
-        (dict "icon" "◉" "title_ja" "量子ドット・量子ポイントコンタクト" "title_en" "Quantum Dots & QPCs" "desc_ja" "グラフェンにおける量子トランスポート" "desc_en" "Quantum transport in graphene nanostructures")
-        (dict "icon" "◈" "title_ja" "TMDデバイス" "title_en" "TMD Devices" "desc_ja" "MoTe₂を用いたドーピングとインバータ回路" "desc_en" "Doping and inverter circuits with MoTe₂")
-        (dict "icon" "◎" "title_ja" "走査プローブ顕微法" "title_en" "Scanning Probe Microscopy" "desc_ja" "ナノスケール構造の可視化と加工" "desc_en" "Nanoscale visualization and patterning")
+        (dict "icon" "⬡" "title_ja" "ファンデルワールスヘテロ接合" "title_en" "vdW Heterostructures"
+              "desc_ja" "原子層材料を積層した量子デバイス" "desc_en" "Quantum devices from stacked 2D atomic layers")
+        (dict "icon" "◉" "title_ja" "量子ドット・QPC" "title_en" "Quantum Dots & QPCs"
+              "desc_ja" "グラフェンにおける量子トランスポート" "desc_en" "Quantum transport in graphene nanostructures")
+        (dict "icon" "◈" "title_ja" "TMDデバイス" "title_en" "TMD Devices"
+              "desc_ja" "MoTe₂ドーピング・インバータ回路" "desc_en" "Doping and inverter circuits with MoTe₂")
+        (dict "icon" "◎" "title_ja" "走査プローブ顕微法" "title_en" "Scanning Probe Microscopy"
+              "desc_ja" "ナノスケール構造の可視化と加工" "desc_en" "Nanoscale visualization and patterning")
       }}
       {{ range $themes }}
-      <div class="card hover:shadow-md transition-shadow duration-200">
-        <div class="text-3xl mb-3 text-primary">{{ .icon }}</div>
-        <h3 class="font-bold text-base mb-2 text-accent">
+      <div class="card text-left">
+        <div class="text-3xl mb-4 text-cu-green">{{ .icon }}</div>
+        <h3 class="font-display font-semibold mb-2"
+            style="font-size:1.0625rem;line-height:1.19;letter-spacing:normal;color:#1d1d1f">
           {{- if eq $.Language.Lang "ja" }}{{ .title_ja }}{{ else }}{{ .title_en }}{{ end -}}
         </h3>
-        <p class="text-sm text-gray-600">
+        <p style="font-size:0.875rem;line-height:1.47;letter-spacing:-0.016em;color:rgba(0,0,0,0.6)">
           {{- if eq $.Language.Lang "ja" }}{{ .desc_ja }}{{ else }}{{ .desc_en }}{{ end -}}
         </p>
       </div>
       {{ end }}
     </div>
-    <div class="text-center mt-8">
-      <a href="{{ "/research" | relLangURL }}" class="btn-secondary">
+
+    <div class="mt-10">
+      <a href="{{ "/research" | relLangURL }}" class="btn-pill">
         {{ i18n "research_learn_more" }}
       </a>
     </div>
   </div>
 </section>
 
-{{- /* Latest news */}}
-<section class="py-16">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between mb-8">
-      <h2 class="section-title mb-0">{{ i18n "news_section_title" }}</h2>
-      <a href="{{ "/news" | relLangURL }}" class="nav-link text-sm">
+{{- /* ── Latest news — pure black, cinematic ────────────────────────── */}}
+<section style="background:#000;color:#fff" class="py-20">
+  <div class="max-w-4xl mx-auto px-4">
+
+    <div class="flex items-end justify-between mb-10">
+      <h2 class="section-title text-white">{{ i18n "news_section_title" }}</h2>
+      <a href="{{ "/news" | relLangURL }}" class="link-cu-dark text-sm shrink-0 mb-1">
         {{ i18n "news_view_all" }}
       </a>
     </div>
-    <div class="space-y-4">
+
+    <div class="divide-y divide-white/10">
       {{ $news := where .Site.RegularPages "Section" "news" }}
       {{ range first 5 $news }}
-      <article class="flex gap-4 py-4 border-b border-base-muted last:border-0">
-        <time class="text-sm text-gray-500 flex-shrink-0 w-28">{{ .Date.Format "2006.01.02" }}</time>
-        <a href="{{ .RelPermalink }}" class="nav-link text-sm font-medium">{{ .Title }}</a>
+      <article class="flex gap-6 py-5">
+        <time class="text-xs shrink-0 w-24 mt-0.5" style="color:rgba(255,255,255,0.4);letter-spacing:-0.010em">
+          {{ .Date.Format "2006.01.02" }}
+        </time>
+        <a href="{{ .RelPermalink }}"
+           class="link-cu-dark font-normal"
+           style="font-size:0.9375rem;letter-spacing:-0.022em;line-height:1.47">
+          {{ .Title }}
+        </a>
       </article>
       {{ else }}
-      <p class="text-gray-500 text-sm italic">{{ i18n "news_empty" }}</p>
+      <p style="font-size:0.9375rem;color:rgba(255,255,255,0.4);letter-spacing:-0.022em;padding:2rem 0">
+        {{ i18n "news_empty" }}
+      </p>
       {{ end }}
     </div>
+  </div>
+</section>
+
+{{- /* ── Access summary — #f5f5f7, informational close ───────────────── */}}
+<section style="background:#f5f5f7;color:#1d1d1f" class="py-16 text-center">
+  <div class="max-w-xl mx-auto px-4">
+    <h2 class="section-title mb-2">
+      {{- if eq .Language.Lang "ja" }}アクセス・連絡先{{ else }}Access & Contact{{ end -}}
+    </h2>
+    <p style="font-size:0.9375rem;line-height:1.47;letter-spacing:-0.022em;color:rgba(0,0,0,0.6)" class="mb-6">
+      {{- if eq .Language.Lang "ja" -}}
+      千葉大学 西千葉キャンパス
+      {{- else -}}
+      Nishi-Chiba Campus, Chiba University
+      {{- end -}}
+    </p>
+    <a href="{{ "/access" | relLangURL }}" class="btn-pill">
+      {{- if eq .Language.Lang "ja" }}アクセスを見る{{ else }}Get directions{{ end -}}
+    </a>
   </div>
 </section>
 

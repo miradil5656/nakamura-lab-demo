@@ -1,70 +1,93 @@
-<header class="sticky top-0 z-50 bg-white border-b border-base-muted shadow-sm" x-data="{ open: false }">
+<header class="sticky top-0 z-50 nav-glass" x-data="{ open: false }">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-16">
+
+    {{- /* Desktop nav — 48px height, Apple compact */}}
+    <div class="hidden md:flex items-center justify-between h-12">
 
       {{- /* Logo */}}
-      <a href="{{ "/" | relLangURL }}" class="flex items-center space-x-2 flex-shrink-0">
-        <span class="text-primary font-bold text-lg leading-tight">
-          {{ i18n "header_logo_main" }}<br class="hidden sm:block">{{ i18n "header_logo_sub" }}
-        </span>
+      <a href="{{ "/" | relLangURL }}"
+         class="flex-shrink-0 text-white font-semibold text-sm leading-tight hover:opacity-80 transition-opacity"
+         style="letter-spacing:-0.022em">
+        {{ i18n "header_logo_main" }}&nbsp;<span class="text-white/60 font-normal">{{ i18n "header_logo_sub" }}</span>
       </a>
 
-      {{- /* Desktop nav */}}
-      <nav class="hidden md:flex items-center space-x-6" aria-label="Main navigation">
+      {{- /* Center nav items */}}
+      <nav class="flex items-center space-x-7" aria-label="Main navigation">
         {{ $currentPage := . }}
         {{ range .Site.Menus.main }}
-        <a href="{{ .URL }}" class="nav-link text-sm{{ if $currentPage.IsMenuCurrent "main" . }} nav-link-active{{ end }}">
+        <a href="{{ .URL }}"
+           class="nav-link{{ if $currentPage.IsMenuCurrent "main" . }} nav-link-active{{ end }}">
           {{ .Name }}
         </a>
         {{ end }}
       </nav>
 
-      {{- /* Language toggle + hamburger */}}
-      <div class="flex items-center space-x-4">
-        {{- /* Language toggle */}}
-        <div class="flex items-center border border-base-muted rounded-full overflow-hidden text-sm font-medium">
-          {{ range .AllTranslations }}
-          <a href="{{ .Permalink }}"
-             class="px-3 py-1 {{ if eq . $.Page }}bg-primary text-white{{ else }}text-accent hover:bg-base-light{{ end }} transition-colors duration-150"
-             lang="{{ .Language.Lang }}"
-             hreflang="{{ .Language.Lang }}"
-             aria-label="{{ i18n "header_lang_switch" }}">
-            {{ upper .Language.Lang }}
-          </a>
-          {{ end }}
-        </div>
-
-        {{- /* Hamburger (mobile) */}}
-        <button class="md:hidden p-2 rounded-lg hover:bg-base-light transition-colors"
-                @click="open = !open"
-                aria-label="{{ i18n "header_menu_label" }}"
-                :aria-expanded="open.toString()">
-          <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  :d="open ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'"/>
-          </svg>
-        </button>
+      {{- /* Language toggle — minimal, white */}}
+      <div class="flex items-center space-x-1 text-xs" style="letter-spacing:-0.010em">
+        {{ range .AllTranslations }}
+        <a href="{{ .Permalink }}"
+           class="px-2 py-1 rounded-apple-sm transition-colors duration-150
+                  {{ if eq . $.Page }}text-white bg-white/20{{ else }}nav-link hover:text-white{{ end }}"
+           lang="{{ .Language.Lang }}"
+           hreflang="{{ .Language.Lang }}"
+           aria-label="{{ i18n "header_lang_switch" }}">
+          {{ upper .Language.Lang }}
+        </a>
+        {{ end }}
       </div>
     </div>
 
-    {{- /* Mobile nav */}}
-    <nav x-show="open"
-         x-transition:enter="transition ease-out duration-150"
-         x-transition:enter-start="opacity-0 -translate-y-2"
-         x-transition:enter-end="opacity-100 translate-y-0"
-         x-transition:leave="transition ease-in duration-100"
-         x-transition:leave-start="opacity-100 translate-y-0"
-         x-transition:leave-end="opacity-0 -translate-y-2"
-         class="md:hidden pb-4 border-t border-base-muted mt-2 pt-4 space-y-2"
-         aria-label="Mobile navigation">
+    {{- /* Mobile nav bar */}}
+    <div class="md:hidden flex items-center justify-between h-12">
+      <a href="{{ "/" | relLangURL }}"
+         class="text-white font-semibold text-sm"
+         style="letter-spacing:-0.022em">
+        {{ i18n "header_logo_main" }}
+      </a>
+      <button class="p-2 text-white/80 hover:text-white transition-colors"
+              @click="open = !open"
+              aria-label="{{ i18n "header_menu_label" }}"
+              :aria-expanded="open.toString()">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                :d="open ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  {{- /* Mobile menu — full-width overlay on glass */}}
+  <nav x-show="open"
+       x-transition:enter="transition ease-out duration-150"
+       x-transition:enter-start="opacity-0 -translate-y-1"
+       x-transition:enter-end="opacity-100 translate-y-0"
+       x-transition:leave="transition ease-in duration-100"
+       x-transition:leave-start="opacity-100 translate-y-0"
+       x-transition:leave-end="opacity-0 -translate-y-1"
+       class="md:hidden border-t border-white/10 py-4 px-4 sm:px-6"
+       aria-label="Mobile navigation">
+    <div class="space-y-1 mb-4">
       {{ range .Site.Menus.main }}
-      <a href="{{ .URL }}" class="block py-2 nav-link text-base" @click="open = false">
+      <a href="{{ .URL }}"
+         class="block py-2 nav-link text-sm"
+         @click="open = false">
         {{ .Name }}
       </a>
       {{ end }}
-    </nav>
-  </div>
+    </div>
+    {{- /* Language toggle in mobile menu */}}
+    <div class="flex items-center space-x-2 pt-3 border-t border-white/10">
+      {{ range .AllTranslations }}
+      <a href="{{ .Permalink }}"
+         class="text-xs px-3 py-1 rounded-pill border transition-colors
+                {{ if eq . $.Page }}border-white text-white{{ else }}border-white/30 nav-link hover:text-white hover:border-white/60{{ end }}"
+         lang="{{ .Language.Lang }}">
+        {{ upper .Language.Lang }}
+      </a>
+      {{ end }}
+    </div>
+  </nav>
 </header>
 
-{{- /* Alpine.js for hamburger menu */}}
+{{- /* Alpine.js */}}
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>

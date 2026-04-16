@@ -2,46 +2,193 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ──────────────────────────────────────────────────────────
+   Base
+   Apple's rendering philosophy: antialiased, tight, precise.
+────────────────────────────────────────────────────────── */
 @layer base {
   html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
-    @apply font-sans text-accent bg-base;
+    font-family: "SF Pro Text", "Noto Sans JP", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: #000000;   /* page starts black, sections layer on top */
+    color: #1d1d1f;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-display;
+  h1, h2, h3, h4, h5 {
+    font-family: "SF Pro Display", "Noto Sans JP", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  /* Apple-style focus ring — university green */
+  :focus-visible {
+    outline: 2px solid #006633;
+    outline-offset: 2px;
   }
 }
 
+/* ──────────────────────────────────────────────────────────
+   Navigation glass
+   The signature Apple UI element: translucent dark backdrop
+   floating above content regardless of section color.
+────────────────────────────────────────────────────────── */
 @layer components {
-  .btn-primary {
-    @apply inline-flex items-center px-6 py-3 rounded-lg bg-primary text-white font-medium hover:bg-primary-dark transition-colors duration-200;
+  .nav-glass {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
   }
 
-  .btn-secondary {
-    @apply inline-flex items-center px-6 py-3 rounded-lg border-2 border-primary text-primary font-medium hover:bg-primary hover:text-white transition-colors duration-200;
-  }
-
-  .card {
-    @apply bg-white rounded-xl shadow-sm border border-base-muted p-6;
-  }
-
-  .section-title {
-    @apply text-2xl md:text-3xl font-bold text-accent mb-4;
-  }
-
-  .section-subtitle {
-    @apply text-base text-gray-600 mb-8;
-  }
-
+  /* Nav links on glass */
   .nav-link {
-    @apply text-accent hover:text-primary font-medium transition-colors duration-200;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.75rem;       /* 12px */
+    font-weight: 400;
+    letter-spacing: -0.010em;
+    transition: color 0.15s ease;
+    text-decoration: none;
+  }
+
+  .nav-link:hover {
+    color: #ffffff;
   }
 
   .nav-link-active {
-    @apply text-primary font-semibold border-b-2 border-primary;
+    color: #ffffff;
+  }
+
+  /* ── Buttons ─────────────────────────────────────────── */
+
+  /* Primary CTA: filled university green */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    background-color: #006633;
+    color: #ffffff;
+    border-radius: 8px;
+    padding: 8px 18px;
+    font-size: 0.94rem;        /* 15px — slightly smaller than Apple's 17px for this use case */
+    font-weight: 400;
+    letter-spacing: -0.022em;
+    line-height: 1;
+    white-space: nowrap;
+    transition: background-color 0.15s ease;
+    text-decoration: none;
+  }
+
+  .btn-primary:hover {
+    background-color: #005529;
+  }
+
+  /* Pill link — on dark bg (black sections) */
+  /* Signature Apple "Learn more" style */
+  .btn-pill-dark {
+    display: inline-flex;
+    align-items: center;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 980px;
+    padding: 8px 18px;
+    font-size: 0.94rem;
+    font-weight: 400;
+    letter-spacing: -0.022em;
+    line-height: 1;
+    white-space: nowrap;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+    text-decoration: none;
+  }
+
+  .btn-pill-dark:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.9);
+  }
+
+  /* Pill link — on light bg */
+  .btn-pill {
+    display: inline-flex;
+    align-items: center;
+    color: #006633;
+    border: 1px solid #006633;
+    border-radius: 980px;
+    padding: 8px 18px;
+    font-size: 0.94rem;
+    font-weight: 400;
+    letter-spacing: -0.022em;
+    line-height: 1;
+    white-space: nowrap;
+    transition: background-color 0.15s ease;
+    text-decoration: none;
+  }
+
+  .btn-pill:hover {
+    background-color: rgba(0, 102, 51, 0.05);
+    text-decoration: underline;
+  }
+
+  /* ── Section typography ─────────────────────────────── */
+
+  /* Apple section title: 40px Display, weight 600, tight */
+  /* DESIGN.md: Section Heading letter-spacing = normal (not negative — spec only tightens at hero/body sizes) */
+  .section-title {
+    font-family: "SF Pro Display", "Noto Sans JP", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 600;
+    line-height: 1.10;
+    letter-spacing: normal;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-subtitle {
+    font-family: "SF Pro Text", "Noto Sans JP", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1.0625rem;      /* 17px */
+    font-weight: 400;
+    line-height: 1.47;
+    letter-spacing: -0.022em;
+    margin-bottom: 2rem;
+  }
+
+  /* ── Research theme cards ───────────────────────────── */
+  /* Apple-style: bg-white (on #f5f5f7 section), 8px radius, no border, no shadow */
+  /* DESIGN.md: Standard card = 8px. 12px is for "feature panels" — keep .card-dark at 12px for elevated dark cards */
+  .card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 1.5rem;
+  }
+
+  .card-dark {
+    background-color: #272729;
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+
+  /* ── Inline "Learn more" text link ─────────────────── */
+  /* Apple's standard body link: colored, underline on hover */
+  .link-cu {
+    color: #006633;
+    letter-spacing: -0.016em;
+    font-size: 0.875rem;
+    text-decoration: none;
+    transition: text-decoration 0.1s;
+  }
+
+  .link-cu:hover {
+    text-decoration: underline;
+  }
+
+  .link-cu-dark {
+    color: #3aaa70;   /* brighter green — legible on black bg */
+    letter-spacing: -0.016em;
+    font-size: 0.875rem;
+    text-decoration: none;
+    transition: text-decoration 0.1s;
+  }
+
+  .link-cu-dark:hover {
+    text-decoration: underline;
   }
 }

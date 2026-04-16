@@ -38,6 +38,18 @@ Post-launch experiments and deferred work. These are NOT in scope for the initia
 
 ---
 
+## TODO-04: Hero Section Image (Design-Critical)
+
+**What:** Add an actual lab photo (SEM image, quantum device, or clean-room shot) to the homepage hero section.
+
+**Why deferred:** No lab photos are available yet. The current hero is text-only on black. Per the Apple design reference (`awesome-design-md/design-md/apple/DESIGN.md`): "Product-as-hero photography on solid color fields" is a core design principle — the hero will feel incomplete until a real image is there.
+
+**Who to ask:** Professor Aoki — request highest-resolution SEM images or device photos available. JPG or PNG, any aspect ratio (will be cropped/positioned in CSS).
+
+**Effort:** 30 minutes once image is provided. Drop in `static/images/hero.jpg`, add `<img src="/images/hero.jpg" ...>` to `layouts/index.html` hero section.
+
+---
+
 ## TODO-02: ResearchProject JSON-LD Schema
 
 **What:** Add `ResearchProject` schema.org structured data to `/research/` and individual research theme pages.
