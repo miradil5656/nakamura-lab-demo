@@ -1,0 +1,12 @@
+{{ define "main" }}
+<section class="min-h-[60vh] flex items-center justify-center py-24">
+  <div class="text-center max-w-lg mx-auto px-4">
+    <p class="text-6xl font-bold text-primary mb-4">404</p>
+    <h1 class="text-2xl font-bold text-accent mb-4">{{ i18n "404_heading" }}</h1>
+    <p class="text-gray-600 mb-8">{{ i18n "404_body" }}</p>
+    <a href="{{ "/" | relLangURL }}" class="btn-primary">
+      {{ i18n "404_home_link" }}
+    </a>
+  </div>
+</section>
+{{ end }}

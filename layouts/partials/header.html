@@ -5,11 +5,7 @@
       {{- /* Logo */}}
       <a href="{{ "/" | relLangURL }}" class="flex items-center space-x-2 flex-shrink-0">
         <span class="text-primary font-bold text-lg leading-tight">
-          {{- if eq .Language.Lang "ja" -}}
-          量子ナノデバイス<br class="hidden sm:block">研究グループ
-          {{- else -}}
-          QND Research<br class="hidden sm:block">Group
-          {{- end -}}
+          {{ i18n "header_logo_main" }}<br class="hidden sm:block">{{ i18n "header_logo_sub" }}
         </span>
       </a>
 
@@ -32,7 +28,7 @@
              class="px-3 py-1 {{ if eq . $.Page }}bg-primary text-white{{ else }}text-accent hover:bg-base-light{{ end }} transition-colors duration-150"
              lang="{{ .Language.Lang }}"
              hreflang="{{ .Language.Lang }}"
-             aria-label="Switch to {{ .Language.Lang }}">
+             aria-label="{{ i18n "header_lang_switch" }}">
             {{ upper .Language.Lang }}
           </a>
           {{ end }}
@@ -41,7 +37,7 @@
         {{- /* Hamburger (mobile) */}}
         <button class="md:hidden p-2 rounded-lg hover:bg-base-light transition-colors"
                 @click="open = !open"
-                aria-label="Toggle navigation menu"
+                aria-label="{{ i18n "header_menu_label" }}"
                 :aria-expanded="open.toString()">
           <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

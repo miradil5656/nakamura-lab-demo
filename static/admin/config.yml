@@ -1,0 +1,146 @@
+backend:
+  name: github
+  repo: miradil5656/qnd-lab-website
+  branch: main
+
+# Use Netlify Identity for auth (or swap to implicit flow for GitHub OAuth)
+# See: https://decapcms.org/docs/backends-overview/
+
+media_folder: static/images/uploads
+public_folder: /nano/qnd/images/uploads
+
+# Locale for the CMS UI
+locale: ja
+
+collections:
+  # ── News / お知らせ ──────────────────────────────────────
+  - name: news
+    label: ニュース
+    label_singular: ニュース記事
+    folder: content/news
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    preview_path: /news/{{slug}}
+    fields:
+      - { label: タイトル, name: title, widget: string }
+      - { label: 日付, name: date, widget: datetime, date_format: "YYYY-MM-DD", time_format: false }
+      - label: カテゴリ
+        name: categories
+        widget: select
+        multiple: true
+        options:
+          - { label: 論文発表, value: paper }
+          - { label: 受賞, value: award }
+          - { label: イベント, value: event }
+          - { label: メンバー, value: member }
+          - { label: その他, value: other }
+      - { label: タグ, name: tags, widget: list, required: false }
+      - { label: 下書き, name: draft, widget: boolean, default: false }
+      - { label: 本文, name: body, widget: markdown }
+
+  # ── News (English) ───────────────────────────────────────
+  - name: news_en
+    label: News (English)
+    label_singular: News article
+    folder: content/en/news
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    preview_path: /en/news/{{slug}}
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Date, name: date, widget: datetime, date_format: "YYYY-MM-DD", time_format: false }
+      - label: Categories
+        name: categories
+        widget: select
+        multiple: true
+        options:
+          - { label: Paper, value: paper }
+          - { label: Award, value: award }
+          - { label: Event, value: event }
+          - { label: Member, value: member }
+          - { label: Other, value: other }
+      - { label: Tags, name: tags, widget: list, required: false }
+      - { label: Draft, name: draft, widget: boolean, default: false }
+      - { label: Body, name: body, widget: markdown }
+
+  # ── Publications (single YAML file) ──────────────────────
+  - name: data_files
+    label: データファイル
+    files:
+      - name: publications
+        label: 論文リスト
+        file: data/publications.yaml
+        fields:
+          - name: publications
+            label: 論文一覧
+            widget: list
+            summary: "{{fields.year}} — {{fields.title}}"
+            fields:
+              - { label: タイトル, name: title, widget: string }
+              - { label: 著者 (カンマ区切り), name: authors, widget: list }
+              - { label: ジャーナル / 会議名, name: journal, widget: string }
+              - { label: 巻号, name: volume, widget: string, required: false }
+              - { label: ページ, name: pages, widget: string, required: false }
+              - { label: 年, name: year, widget: number }
+              - { label: DOI, name: doi, widget: string, required: false }
+              - label: 種別
+                name: category
+                widget: select
+                options:
+                  - { label: 学術論文, value: journal }
+                  - { label: 国際会議, value: conference }
+                  - { label: 国内学会, value: domestic }
+
+      - name: members
+        label: メンバー
+        file: data/members.yaml
+        fields:
+          - name: staff
+            label: 教職員
+            widget: list
+            summary: "{{fields.name_ja}} ({{fields.title_ja}})"
+            fields:
+              - { label: 日本語名, name: name_ja, widget: string }
+              - { label: 英語名, name: name_en, widget: string }
+              - { label: 役職（日本語）, name: title_ja, widget: string }
+              - { label: 役職（英語）, name: title_en, widget: string }
+              - { label: メール (_at_ 形式), name: email, widget: string }
+              - { label: 研究テーマ（日本語）, name: research_ja, widget: text, required: false }
+              - { label: Research theme (English), name: research_en, widget: text, required: false }
+              - { label: 写真, name: photo, widget: image, required: false }
+              - { label: ORCID iD, name: orcid, widget: string, required: false }
+          - name: students
+            label: 学生
+            widget: list
+            summary: "{{fields.name_ja}} ({{fields.grade}})"
+            fields:
+              - { label: 日本語名, name: name_ja, widget: string }
+              - { label: 英語名, name: name_en, widget: string }
+              - label: 学年
+                name: grade
+                widget: select
+                options: [D3, D2, D1, M2, M1, B4]
+              - { label: 入学年度, name: year, widget: number }
+              - { label: 研究テーマ（日本語）, name: research_ja, widget: text, required: false }
+              - { label: 写真, name: photo, widget: image, required: false }
+
+      - name: facilities
+        label: 研究設備
+        file: data/facilities.yaml
+        fields:
+          - name: facilities
+            label: 設備一覧
+            widget: list
+            summary: "{{fields.name_ja}}"
+            fields:
+              - { label: 名称（日本語）, name: name_ja, widget: string }
+              - { label: Name (English), name: name_en, widget: string }
+              - label: カテゴリ
+                name: category
+                widget: select
+                options:
+                  - { label: 試料作製装置, value: fabrication }
+                  - { label: 評価設備, value: measurement }
+              - { label: 説明（日本語）, name: description_ja, widget: text, required: false }
+              - { label: Description (English), name: description_en, widget: text, required: false }
+              - { label: 写真, name: photo, widget: image, required: false }
