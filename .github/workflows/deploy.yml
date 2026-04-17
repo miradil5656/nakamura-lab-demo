@@ -50,52 +50,5 @@ jobs:
           path: public/
           retention-days: 1
 
-  deploy:
-    name: Deploy to Cloudflare Pages
-    runs-on: ubuntu-latest
-    needs: build
-    # Only deploy on push to main (not on PRs)
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-
-    permissions:
-      contents: read
-      deployments: write
-
-    steps:
-      - name: Download build artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: public
-          path: public/
-
-      - name: Deploy to Cloudflare Pages
-        uses: cloudflare/pages-action@v1
-        with:
-          apiToken: ${{ secrets.CF_API_TOKEN }}
-          accountId: ${{ secrets.CF_ACCOUNT_ID }}
-          projectName: qnd-lab
-          directory: public/
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-          # Wrangler version — pin for reproducibility
-          wranglerVersion: '3'
-
-  # Post-deploy smoke test (advisory — does not fail the pipeline)
-  smoke-test:
-    name: Smoke Test
-    runs-on: ubuntu-latest
-    needs: deploy
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-
-    steps:
-      - name: Wait for propagation
-        run: sleep 30
-
-      - name: Check /admin deployed
-        # TODO-03: advisory check — does not fail CI
-        run: |
-          STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://adv.chiba-u.jp/nano/qnd/admin/ || echo "000")
-          if [ "$STATUS" = "200" ]; then
-            echo "✓ /admin deployed (HTTP $STATUS)"
-          else
-            echo "⚠ /admin returned HTTP $STATUS — check Cloudflare Pages deploy"
-          fi
+  # Deploy and smoke-test are handled by Cloudflare Pages Direct Git integration.
+  # No GitHub Actions deploy job needed.
