@@ -4,6 +4,28 @@ All notable changes to this project are documented here.
 
 ---
 
+## [0.4.0.0] - 2026-04-17
+
+### Added
+- Page-specific Hugo templates: Research (left-nav + accordion), Members (staff/student/alumni cards), Publications (year/category filter), Facilities (tab grid + GLightbox), News (timeline + pagination), Search (Pagefind UI), Access (map + directions)
+- `data/members.yaml`, `data/publications.yaml`, `data/facilities.yaml`: structured content for all site sections
+- JSON-LD structured data partials (`json-ld.html`, `json-ld-article.html`, `json-ld-publication.html`) for ResearchOrganization, BreadcrumbList, ScholarlyArticle schemas
+- Google Scholar citation meta tags on publications section
+- Pagefind static search — bilingual JP/EN indexing at build time
+- GSAP 3 + ScrollTrigger animations with prefers-reduced-motion support
+- GitHub Actions CI/CD workflow: Hugo extended build → Pagefind index → Cloudflare Pages deploy
+- Historical news articles (2021–2023) in JP and EN
+- Search icon in header nav (desktop and mobile)
+
+### Changed
+- `assets/css/main.css`: extended with section-specific styles (research sidebar, member cards, publication list, facility grid, news timeline)
+- `layouts/partials/header.html`: added Pagefind `data-pagefind-ignore`, search icon link, `.Site.Home.RelPermalink` for logo href
+- `layouts/_default/baseof.html`: wired Pagefind CSS/JS assets
+- `package.json`: added `build:hugo`, `search:index` scripts; added pagefind devDependency
+- `static/admin/config.yml`: expanded Decap CMS collections for all content types
+
+---
+
 ## [0.2.0.0] - 2026-04-16
 
 ### Added
