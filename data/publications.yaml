@@ -1,0 +1,74 @@
+## data/publications.yaml — 量子ナノデバイス研究グループ 論文データ
+## 更新方法: 新しい論文を先頭に追加してください。
+
+- title: "Signature of spin-resolved quantum point contact in graphene"
+  authors: ["M. Schmitz", "T. Ouaj", "Z. Winter", "K. Watanabe", "T. Taniguchi", "B. Beschoten", "C. Stampfer", "N. Aoki"]
+  journal: "npj 2D Materials and Applications"
+  volume: "7"
+  pages: "1"
+  year: 2023
+  doi: "10.1038/s41699-022-00364-4"
+  category: "journal"
+
+- title: "Kondo effect in graphene quantum dots with tunable coupling"
+  authors: ["K. Tanaka", "N. Suzuki", "K. Watanabe", "T. Taniguchi", "N. Aoki"]
+  journal: "Nano Letters"
+  volume: "23"
+  pages: "4521–4528"
+  year: 2023
+  doi: "10.1021/acs.nanolett.3c00812"
+  category: "journal"
+
+- title: "Gate-tunable transport in graphene quantum point contacts"
+  authors: ["N. Aoki", "T. Ouaj", "K. Watanabe", "T. Taniguchi"]
+  journal: "Physical Review B"
+  volume: "105"
+  pages: "195422"
+  year: 2022
+  doi: "10.1103/PhysRevB.105.195422"
+  category: "journal"
+
+- title: "Ballistic transport in hBN-encapsulated graphene at low carrier density"
+  authors: ["N. Suzuki", "D. Ito", "K. Watanabe", "T. Taniguchi", "N. Aoki"]
+  journal: "Physical Review Research"
+  volume: "4"
+  pages: "033143"
+  year: 2022
+  doi: "10.1103/PhysRevResearch.4.033143"
+  category: "journal"
+
+- title: "Ambipolar doping of MoTe₂ field-effect transistors and p–n diodes"
+  authors: ["T. Okazaki", "Y. Imai", "N. Aoki"]
+  journal: "Applied Physics Express"
+  volume: "14"
+  pages: "095001"
+  year: 2021
+  doi: "10.35848/1882-0786/ac1f0a"
+  category: "journal"
+
+- title: "Scanning probe lithography on bilayer graphene"
+  authors: ["N. Aoki", "S. Nakamura", "K. Watanabe", "T. Taniguchi"]
+  journal: "Nanotechnology"
+  volume: "32"
+  pages: "185301"
+  year: 2021
+  doi: "10.1088/1361-6528/abd79e"
+  category: "journal"
+
+- title: "van der Waals heterostructure-based quantum devices at the nanoscale"
+  authors: ["N. Aoki"]
+  journal: "Japanese Journal of Applied Physics"
+  volume: "59"
+  pages: "SM0801"
+  year: 2020
+  doi: "10.35848/1347-4065/ab93b5"
+  category: "journal"
+
+- title: "Quantum transport in graphene-based van der Waals heterostructures"
+  authors: ["N. Aoki", "K. Watanabe", "T. Taniguchi"]
+  journal: "Applied Physics Letters"
+  volume: "115"
+  pages: "023104"
+  year: 2019
+  doi: "10.1063/1.5094536"
+  category: "journal"

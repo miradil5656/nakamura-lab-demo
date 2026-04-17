@@ -36,5 +36,10 @@ news_empty: ニュースは準備中です。
 404_body: お探しのページは存在しないか、移動した可能性があります。
 404_home_link: ホームへ戻る
 
+# Search
+search_title: サイト内検索
+search_placeholder: 検索キーワードを入力…
+search_empty: 検索結果が見つかりませんでした。
+
 # Common
 common_university: 千葉大学

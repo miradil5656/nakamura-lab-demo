@@ -1,0 +1,52 @@
+## data/facilities.yaml — 量子ナノデバイス研究グループ 研究設備データ
+## 更新方法: このファイルを直接編集してください。
+
+fabrication:
+  - name_ja: "電子線描画装置"
+    name_en: "Electron Beam Lithography System"
+    description_ja: "10 nm以下の分解能でナノスケールパターニングが可能な電子線描画システム。グラフェン量子デバイスの電極・ゲートパターン形成に使用。"
+    description_en: "Electron beam lithography system capable of sub-10 nm resolution patterning. Used for electrode and gate fabrication in graphene quantum devices."
+    photo: ""
+
+  - name_ja: "反応性イオンエッチング装置"
+    name_en: "Reactive Ion Etching System"
+    description_ja: "CHF₃/O₂等のガスを用いたドライエッチング装置。hBNやグラフェンのパターニング、絶縁膜エッチングに使用。"
+    description_en: "Dry etching system using CHF₃/O₂ gases. Used for patterning hBN and graphene, and etching dielectric films."
+    photo: ""
+
+  - name_ja: "熱蒸着装置"
+    name_en: "Thermal Evaporation System"
+    description_ja: "Au/Cr、Ti等の金属薄膜蒸着装置。電極形成とオーミックコンタクト作製に使用。"
+    description_en: "Metal thin film deposition system for Au/Cr, Ti, etc. Used for electrode formation and ohmic contact fabrication."
+    photo: ""
+
+  - name_ja: "グローブボックス（不活性雰囲気）"
+    name_en: "Inert Atmosphere Glovebox"
+    description_ja: "Ar雰囲気中での2次元材料の積層・転写作業用グローブボックス。水分・酸素濃度をppmレベルに制御。"
+    description_en: "Glovebox for stacking and transferring 2D materials under Ar atmosphere. Controls moisture and oxygen levels to ppm levels."
+    photo: ""
+
+evaluation:
+  - name_ja: "希釈冷凍機"
+    name_en: "Dilution Refrigerator"
+    description_ja: "ベース温度20 mK以下の希釈冷凍機。量子輸送測定（量子ドット、量子ポイントコンタクト）の主力評価装置。超伝導磁石（9 T）搭載。"
+    description_en: "Dilution refrigerator with base temperature below 20 mK. Primary measurement system for quantum transport experiments (quantum dots, QPCs). Equipped with 9 T superconducting magnet."
+    photo: ""
+
+  - name_ja: "4 K クライオスタット"
+    name_en: "4 K Cryostat"
+    description_ja: "液体ヘリウムベースの低温測定装置（4 K〜室温）。初期評価・スクリーニング測定に使用。"
+    description_en: "Liquid helium-based cryogenic measurement system (4 K to room temperature). Used for initial device characterization and screening."
+    photo: ""
+
+  - name_ja: "走査型プローブ顕微鏡（AFM/STM）"
+    name_en: "Scanning Probe Microscope (AFM/STM)"
+    description_ja: "原子間力顕微鏡・走査トンネル顕微鏡。試料表面の形状観察、ナノスケール電気的特性マッピング、局所ゲート操作に使用。"
+    description_en: "Atomic force and scanning tunneling microscope. Used for surface topography imaging, nanoscale electrical property mapping, and local gating."
+    photo: ""
+
+  - name_ja: "ロックイン増幅器・低雑音測定系"
+    name_en: "Lock-in Amplifiers and Low-noise Measurement System"
+    description_ja: "高感度の電気輸送特性測定システム。フィルタリング、シールディングを最適化した低雑音環境。"
+    description_en: "High-sensitivity electrical transport measurement system. Optimized low-noise environment with filtering and shielding."
+    photo: ""

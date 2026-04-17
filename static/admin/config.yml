@@ -2,9 +2,9 @@ backend:
   name: github
   repo: miradil5656/qnd-lab-website
   branch: main
-
-# Use Netlify Identity for auth (or swap to implicit flow for GitHub OAuth)
-# See: https://decapcms.org/docs/backends-overview/
+  auth_type: pkce           # PKCE OAuth — no server proxy required
+  app_id: YOUR_GITHUB_OAUTH_APP_CLIENT_ID   # ← GitHub OAuth App の Client ID に変更
+  # base_url: https://adv.chiba-u.jp/nano/qnd  # (本番URLに合わせて変更)
 
 media_folder: static/images/uploads
 public_folder: /nano/qnd/images/uploads

@@ -1,0 +1,78 @@
+{{- /*
+   JSON-LD structured data
+   Go's html/template treats ALL <script> content as JS context, regardless
+   of the type attribute. The fix: build the full <script>…</script> string
+   with printf, then emit it as safeHTML — bypassing JS-context escaping.
+*/ -}}
+
+{{- /* ── Shared sub-objects ─────────────────────────────────────────── */}}
+{{- $parentOrg := dict
+  "@type"         "EducationalOrganization"
+  "name"          "千葉大学"
+  "alternateName" "Chiba University"
+  "url"           "https://www.chiba-u.ac.jp/"
+-}}
+{{- $address := dict
+  "@type"           "PostalAddress"
+  "streetAddress"   "1-33 Yayoi-cho, Inage-ku"
+  "addressLocality" "Chiba-shi"
+  "addressRegion"   "Chiba"
+  "postalCode"      "263-8522"
+  "addressCountry"  "JP"
+-}}
+{{- $contact := dict
+  "@type"             "ContactPoint"
+  "contactType"       "academic inquiry"
+  "email"             "aoki@faculty.chiba-u.jp"
+  "availableLanguage" (slice "Japanese" "English")
+-}}
+{{- $professor := dict
+  "@type"      "Person"
+  "name"       "Nobuyuki Aoki"
+  "givenName"  "Nobuyuki"
+  "familyName" "Aoki"
+  "jobTitle"   "Professor"
+  "worksFor"   (dict "@type" "EducationalOrganization" "name" "Chiba University")
+-}}
+
+{{- /* ── Organization (every page) ────────────────────────────────── */}}
+{{- $org := dict
+  "@context"           "https://schema.org"
+  "@type"              "Organization"
+  "name"               "量子ナノデバイス研究グループ"
+  "alternateName"      "Quantum Nanodevice Research Group (Aoki Lab)"
+  "url"                .Site.BaseURL
+  "parentOrganization" $parentOrg
+  "address"            $address
+  "contactPoint"       $contact
+  "member"             $professor
+  "knowsAbout"         (slice "Quantum Transport" "Graphene" "2D Materials" "Quantum Dots" "van der Waals Heterostructures" "Transition Metal Dichalcogenides")
+-}}
+{{ printf `<script type="application/ld+json">%s</script>` ($org | jsonify) | safeHTML }}
+
+{{- /* ── WebSite (homepage only) ──────────────────────────────────── */}}
+{{ if .IsHome -}}
+{{- $website := dict
+  "@context"   "https://schema.org"
+  "@type"      "WebSite"
+  "name"       .Site.Title
+  "url"        .Site.BaseURL
+  "inLanguage" .Language.Lang
+  "publisher"  (dict "@type" "Organization" "name" .Site.Title "url" .Site.BaseURL)
+-}}
+{{ printf `<script type="application/ld+json">%s</script>` ($website | jsonify) | safeHTML }}
+{{- end }}
+
+{{- /* ── BreadcrumbList (inner pages only) ─────────────────────────── */}}
+{{ if not .IsHome -}}
+{{- $homeName := "Home" -}}
+{{- if eq .Language.Lang "ja" }}{{- $homeName = "ホーム" -}}{{ end -}}
+{{- $item1 := dict "@type" "ListItem" "position" 1 "name" $homeName "item" .Site.BaseURL -}}
+{{- $item2 := dict "@type" "ListItem" "position" 2 "name" .Title    "item" .Permalink -}}
+{{- $breadcrumb := dict
+  "@context"        "https://schema.org"
+  "@type"           "BreadcrumbList"
+  "itemListElement" (slice $item1 $item2)
+-}}
+{{ printf `<script type="application/ld+json">%s</script>` ($breadcrumb | jsonify) | safeHTML }}
+{{- end }}

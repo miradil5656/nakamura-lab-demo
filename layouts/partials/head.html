@@ -32,6 +32,20 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&display=swap" rel="stylesheet">
 
+{{- /* Scholar meta — publications section only */}}
+{{ if eq .Section "publications" }}
+{{ range .Site.Data.publications }}
+<meta name="citation_title" content="{{ .title }}">
+{{ range .authors }}<meta name="citation_author" content="{{ . }}">
+{{ end }}<meta name="citation_journal_title" content="{{ .journal }}">
+<meta name="citation_publication_date" content="{{ .year }}">
+{{ if .doi }}<meta name="citation_doi" content="{{ .doi }}">{{ end }}
+{{ end }}
+{{ end }}
+
+{{- /* JSON-LD structured data */}}
+{{- partial "json-ld.html" . }}
+
 {{- /* Tailwind CSS via Hugo Pipes */}}
 {{- $css := resources.Get "css/main.css" | css.PostCSS | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">

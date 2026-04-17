@@ -33,3 +33,5 @@ npm-debug.log*
 
 # Claude Code project config (local only)
 .claude/
+.gstack/
+awesome-design-md/
