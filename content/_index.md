@@ -1,4 +1,4 @@
 ---
-title: "量子ナノデバイス研究グループ"
-description: "千葉大学 量子ナノデバイス研究グループ（青木研究室）の公式サイト。量子ドット、グラフェン量子輸送、TMDデバイスの研究を行っています。"
+title: "YOUR_LAB_NAME"
+description: "YOUR_UNIVERSITY YOUR_LAB_NAME の公式サイト。"
 ---

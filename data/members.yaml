@@ -1,144 +1,32 @@
-## data/members.yaml — 量子ナノデバイス研究グループ メンバーデータ
+## data/members.yaml — ラボメンバーデータ
 ## 更新方法: このファイルを直接編集してください。
+## 必須フィールド: name_ja, name_en, title_ja, title_en, email
+## 任意フィールド: research_ja, research_en, orcid, photo
 
 staff:
-  - name_ja: "青木 伸之"
-    name_en: "Nobuyuki Aoki"
+  - name_ja: "{{PI名前}}"
+    name_en: "{{PI Name}}"
     title_ja: "教授"
     title_en: "Professor"
-    email: "aoki_at_faculty.chiba-u.jp"
-    research_ja: "量子ナノデバイス、グラフェン量子輸送、2次元材料"
-    research_en: "Quantum nanodevices, graphene quantum transport, 2D materials"
-    orcid: "0000-0002-1234-5678"
-    photo: ""
-
-  - name_ja: "山田 隆志"
-    name_en: "Takashi Yamada"
-    title_ja: "助教"
-    title_en: "Assistant Professor"
-    email: "yamada_at_faculty.chiba-u.jp"
-    research_ja: "van der Waals ヘテロ接合、低温量子輸送測定"
-    research_en: "van der Waals heterostructures, low-temperature quantum transport"
+    email: "pi_at_example.ac.jp"
+    research_ja: "{{研究テーマ（日本語）}}"
+    research_en: "{{Research theme (English)}}"
+    orcid: ""
     photo: ""
 
 students:
-  - name_ja: "田中 健太"
-    name_en: "Kenta Tanaka"
-    grade: "D3"
-    year: 2022
-    research_ja: "グラフェン量子ポイントコンタクトにおけるスピン分解輸送"
-    photo: ""
-
-  - name_ja: "鈴木 直樹"
-    name_en: "Naoki Suzuki"
-    grade: "D2"
-    year: 2023
-    research_ja: "hBN封入グラフェンの弾道輸送特性"
-    photo: ""
-
-  - name_ja: "山本 彩"
-    name_en: "Aya Yamamoto"
+  - name_ja: "{{学生名前}}"
+    name_en: "{{Student Name}}"
     grade: "D1"
-    year: 2024
-    research_ja: "MoTe₂ p-n接合デバイスの電気的特性"
-    photo: ""
-
-  - name_ja: "伊藤 大輔"
-    name_en: "Daisuke Ito"
-    grade: "M2"
-    year: 2024
-    research_ja: "走査型プローブリソグラフィによるナノ構造作製"
-    photo: ""
-
-  - name_ja: "小林 美咲"
-    name_en: "Misaki Kobayashi"
-    grade: "M2"
-    year: 2024
-    research_ja: "グラフェン量子ドットの近藤効果"
-    photo: ""
-
-  - name_ja: "渡辺 浩二"
-    name_en: "Koji Watanabe"
-    grade: "M1"
     year: 2025
-    research_ja: "TMDデバイスのイオン液体ゲーティング"
-    photo: ""
-
-  - name_ja: "加藤 友理"
-    name_en: "Yuri Kato"
-    grade: "M1"
-    year: 2025
-    research_ja: "2次元材料の積層・転写技術"
-    photo: ""
-
-  - name_ja: "中村 優"
-    name_en: "Yu Nakamura"
-    grade: "B4"
-    year: 2025
-    research_ja: "電子線描画装置を用いたナノデバイス作製"
+    research_ja: "{{研究テーマ}}"
     photo: ""
 
 alumni:
-  - name_ja: "佐藤 誠"
-    name_en: "Makoto Sato"
-    degree_ja: "博士（工学）"
-    degree_en: "Ph.D. (Engineering)"
-    year: 2024
-    destination_ja: "日本電気株式会社（NEC）"
-    destination_en: "NEC Corporation"
-
-  - name_ja: "松本 裕子"
-    name_en: "Yuko Matsumoto"
+  - name_ja: "{{OB/OG名前}}"
+    name_en: "{{Alumni Name}}"
     degree_ja: "修士（理学）"
     degree_en: "M.Sc. (Science)"
-    year: 2024
-    destination_ja: "東京大学大学院 博士課程進学"
-    destination_en: "Doctoral program, University of Tokyo"
-
-  - name_ja: "高橋 浩"
-    name_en: "Hiroshi Takahashi"
-    degree_ja: "修士（理学）"
-    degree_en: "M.Sc. (Science)"
-    year: 2023
-    destination_ja: "ソニーグループ株式会社"
-    destination_en: "Sony Group Corporation"
-
-  - name_ja: "西村 拓也"
-    name_en: "Takuya Nishimura"
-    degree_ja: "博士（理学）"
-    degree_en: "Ph.D. (Science)"
-    year: 2023
-    destination_ja: "理化学研究所 研究員"
-    destination_en: "Researcher, RIKEN"
-
-  - name_ja: "木村 さくら"
-    name_en: "Sakura Kimura"
-    degree_ja: "修士（理学）"
-    degree_en: "M.Sc. (Science)"
-    year: 2022
-    destination_ja: "富士通株式会社"
-    destination_en: "Fujitsu Limited"
-
-  - name_ja: "林 祐介"
-    name_en: "Yusuke Hayashi"
-    degree_ja: "博士（理学）"
-    degree_en: "Ph.D. (Science)"
-    year: 2022
-    destination_ja: "国立研究開発法人 産業技術総合研究所"
-    destination_en: "National Institute of Advanced Industrial Science and Technology (AIST)"
-
-  - name_ja: "前田 麻衣"
-    name_en: "Mai Maeda"
-    degree_ja: "修士（理学）"
-    degree_en: "M.Sc. (Science)"
-    year: 2021
-    destination_ja: "千葉県立高等学校 教諭"
-    destination_en: "High school teacher, Chiba Prefecture"
-
-  - name_ja: "岡本 大地"
-    name_en: "Daichi Okamoto"
-    degree_ja: "修士（理学）"
-    degree_en: "M.Sc. (Science)"
-    year: 2020
-    destination_ja: "株式会社日立製作所"
-    destination_en: "Hitachi, Ltd."
+    year: 2025
+    destination_ja: "{{就職先・進学先}}"
+    destination_en: "{{Destination (English)}}"

@@ -1,29 +1,30 @@
 # i18n/en.yaml — English UI strings
+# ↓ Change lab name and university here
 
 # Header
-header_logo_main: QND Research
+header_logo_main: "YOUR_LAB_NAME_SHORT_EN"  # e.g. QND Research
 header_logo_sub: Group
 header_menu_label: Toggle navigation menu
 header_lang_switch: Switch language
 
 # Footer
-footer_lab_name: Quantum Nanodevice Research Group
-footer_affiliation: "Graduate School of Science and Engineering, Chiba University"
+footer_lab_name: "YOUR_LAB_NAME_EN"         # e.g. Quantum Nanodevice Research Group
+footer_affiliation: "YOUR_AFFILIATION_EN"   # e.g. Graduate School of Science and Engineering, Chiba University
 footer_sitemap: Site Map
 footer_contact: Contact
-footer_address: "1-33 Yayoi-cho, Inage-ku, Chiba-shi, Chiba 263-8522, Japan"
+footer_address: "YOUR_ADDRESS_EN"           # e.g. 1-33 Yayoi-cho, Inage-ku, Chiba, Japan
 
 # Hero (homepage)
-hero_supertitle: Chiba University
-hero_heading_line1: Exploring Quantum
-hero_heading_line2: Nanodevices for Tomorrow
-hero_body: We explore quantum transport in graphene, 2D materials, and quantum dot devices.
+hero_supertitle: "YOUR_UNIVERSITY_EN"
+hero_heading_line1: "YOUR_HERO_LINE1_EN"    # e.g. Exploring Quantum
+hero_heading_line2: "YOUR_HERO_LINE2_EN"    # e.g. Nanodevices for Tomorrow
+hero_body: "YOUR_HERO_BODY_EN"              # 2-3 sentence description of the lab
 hero_cta_research: Our Research
 hero_cta_publications: Publications
 
 # Research section (homepage)
 research_section_title: Research Themes
-research_section_subtitle: We study quantum phenomena at the nanoscale to develop next-generation devices.
+research_section_subtitle: "YOUR_RESEARCH_SUBTITLE_EN"
 research_learn_more: Learn More
 
 # News section (homepage)
@@ -42,4 +43,4 @@ search_placeholder: Search the site…
 search_empty: No results found.
 
 # Common
-common_university: Chiba University
+common_university: "YOUR_UNIVERSITY_EN"     # e.g. Chiba University

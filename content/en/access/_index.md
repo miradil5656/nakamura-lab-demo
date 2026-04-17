@@ -1,4 +1,4 @@
 ---
 title: "Access & Contact"
-description: "How to reach the Quantum Nanodevice Group at Chiba University. Nishi-Chiba Campus, Science Research Building."
+description: "How to reach {{LAB_NAME_EN}}, {{UNIVERSITY_EN}}."
 ---

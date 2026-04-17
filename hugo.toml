@@ -1,5 +1,5 @@
-baseURL = "https://adv.chiba-u.jp/nano/qnd/"
-title = "量子ナノデバイス研究グループ — 千葉大学"
+baseURL = "https://your-lab.example.com/"
+title = "YOUR_LAB_NAME — YOUR_UNIVERSITY"
 defaultContentLanguage = "ja"
 defaultContentLanguageInSubdir = false
 enableRobotsTXT = true
@@ -7,13 +7,13 @@ enableRobotsTXT = true
 [languages.ja]
   weight = 1
   languageCode = "ja"
-  title = "量子ナノデバイス研究グループ — 千葉大学"
+  title = "YOUR_LAB_NAME — YOUR_UNIVERSITY"
 
 [languages.en]
   weight = 2
   languageCode = "en"
   contentDir = "content/en"
-  title = "Quantum Nanodevice Research Group — Chiba University"
+  title = "YOUR_LAB_NAME_EN — YOUR_UNIVERSITY_EN"
 
 [markup.goldmark.renderer]
   unsafe = true
@@ -28,9 +28,9 @@ enableRobotsTXT = true
   priority = 0.5
 
 [params]
-  description = "千葉大学 量子ナノデバイス研究グループ（青木研究室）の公式サイト。量子ドット、グラフェン量子輸送、TMDデバイスの研究を行っています。"
-  description_en = "Official site of the Quantum Nanodevice Research Group (Aoki Lab), Chiba University. Research on quantum dots, graphene quantum transport, and TMD devices."
-  author = "青木 伸之 (Nobuyuki Aoki)"
+  description = "YOUR_UNIVERSITY YOUR_LAB_NAME の公式サイト。"
+  description_en = "Official site of YOUR_LAB_NAME_EN, YOUR_UNIVERSITY_EN."
+  author = "YOUR_PI_NAME"
   og_image = "/images/og/og-default.jpg"
 
 [module]
