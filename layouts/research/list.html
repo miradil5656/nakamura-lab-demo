@@ -1,12 +1,12 @@
 {{ define "main" }}
 
 {{- /* ── Research hero — black, cinematic ──────────────────────────────── */}}
-<section style="background:#000;color:#fff" class="pt-28 pb-16 text-center">
+<section style="background:#000;color:#fff" class="pt-28 pb-16 text-center js-hero">
   <div class="max-w-3xl mx-auto px-4">
-    <p class="text-xs font-semibold uppercase tracking-widest mb-4" style="color:#3aaa70;letter-spacing:0.12em">
+    <p class="text-xs font-semibold uppercase tracking-widest mb-4 js-hero-super" style="color:#3aaa70;letter-spacing:0.12em">
       {{- if eq .Language.Lang "ja" }}研究内容{{ else }}Research{{ end -}}
     </p>
-    <h1 class="font-display font-semibold text-white mb-4"
+    <h1 class="font-display font-semibold text-white mb-4 js-hero-heading"
         style="font-size:clamp(2rem,4.5vw,3rem);line-height:1.07;letter-spacing:-0.28px">
       {{- if eq .Language.Lang "ja" -}}
       量子ナノデバイスの<br>フロンティアを探る
@@ -14,7 +14,7 @@
       Exploring the Frontiers<br>of Quantum Nanodevices
       {{- end -}}
     </h1>
-    <p class="text-white/70 mx-auto"
+    <p class="text-white/70 mx-auto js-hero-body"
        style="font-size:1.0625rem;line-height:1.47;letter-spacing:-0.022em;max-width:520px">
       {{- if eq .Language.Lang "ja" -}}
       2次元材料の量子輸送現象を研究し、次世代のナノスケール量子デバイスの実現を目指しています。
@@ -29,8 +29,8 @@
 <section style="background:#f5f5f7;color:#1d1d1f" class="py-20">
   <div class="max-w-5xl mx-auto px-4">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-      <div>
-        <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color:#006633;letter-spacing:0.10em">
+      <div class="js-slide-left">
+        <p class="text-xs font-semibold uppercase tracking-widest mb-3 js-theme-label" style="color:#006633;letter-spacing:0.10em">
           {{- if eq .Language.Lang "ja" }}研究テーマ 01{{ else }}Theme 01{{ end -}}
         </p>
         <h2 class="section-title mb-4">
@@ -59,7 +59,7 @@
           {{- end -}}
         </ul>
       </div>
-      <div class="card flex items-center justify-center" style="min-height:280px;background:#e8e8ed">
+      <div class="card flex items-center justify-center js-slide-right" style="min-height:280px;background:#e8e8ed">
         <p style="font-size:0.875rem;color:rgba(0,0,0,0.3);text-align:center">
           {{- if eq .Language.Lang "ja" -}}
           デバイス画像（準備中）<br>SEM / 顕微鏡写真
@@ -76,7 +76,7 @@
 <section style="background:#000;color:#fff" class="py-20">
   <div class="max-w-5xl mx-auto px-4">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-      <div class="order-2 lg:order-1 card-dark flex items-center justify-center" style="min-height:280px">
+      <div class="order-2 lg:order-1 card-dark flex items-center justify-center js-slide-left" style="min-height:280px">
         <p style="font-size:0.875rem;color:rgba(255,255,255,0.25);text-align:center">
           {{- if eq .Language.Lang "ja" -}}
           量子ドット デバイス画像（準備中）
@@ -85,8 +85,8 @@
           {{- end -}}
         </p>
       </div>
-      <div class="order-1 lg:order-2">
-        <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color:#3aaa70;letter-spacing:0.10em">
+      <div class="order-1 lg:order-2 js-slide-right">
+        <p class="text-xs font-semibold uppercase tracking-widest mb-3 js-theme-label" style="color:#3aaa70;letter-spacing:0.10em">
           {{- if eq .Language.Lang "ja" }}研究テーマ 02{{ else }}Theme 02{{ end -}}
         </p>
         <h2 class="section-title text-white mb-4">
@@ -123,8 +123,8 @@
 <section style="background:#f5f5f7;color:#1d1d1f" class="py-20">
   <div class="max-w-5xl mx-auto px-4">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-      <div>
-        <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color:#006633;letter-spacing:0.10em">
+      <div class="js-slide-left">
+        <p class="text-xs font-semibold uppercase tracking-widest mb-3 js-theme-label" style="color:#006633;letter-spacing:0.10em">
           {{- if eq .Language.Lang "ja" }}研究テーマ 03{{ else }}Theme 03{{ end -}}
         </p>
         <h2 class="section-title mb-4">
@@ -153,7 +153,7 @@
           {{- end -}}
         </ul>
       </div>
-      <div class="card flex items-center justify-center" style="min-height:280px;background:#e8e8ed">
+      <div class="card flex items-center justify-center js-slide-right" style="min-height:280px;background:#e8e8ed">
         <p style="font-size:0.875rem;color:rgba(0,0,0,0.3);text-align:center">
           {{- if eq .Language.Lang "ja" -}}
           TMDデバイス画像（準備中）
@@ -170,7 +170,7 @@
 <section style="background:#000;color:#fff" class="py-20">
   <div class="max-w-5xl mx-auto px-4">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-      <div class="order-2 lg:order-1 card-dark flex items-center justify-center" style="min-height:280px">
+      <div class="order-2 lg:order-1 card-dark flex items-center justify-center js-slide-left" style="min-height:280px">
         <p style="font-size:0.875rem;color:rgba(255,255,255,0.25);text-align:center">
           {{- if eq .Language.Lang "ja" -}}
           SPM 画像（準備中）
@@ -179,8 +179,8 @@
           {{- end -}}
         </p>
       </div>
-      <div class="order-1 lg:order-2">
-        <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color:#3aaa70;letter-spacing:0.10em">
+      <div class="order-1 lg:order-2 js-slide-right">
+        <p class="text-xs font-semibold uppercase tracking-widest mb-3 js-theme-label" style="color:#3aaa70;letter-spacing:0.10em">
           {{- if eq .Language.Lang "ja" }}研究テーマ 04{{ else }}Theme 04{{ end -}}
         </p>
         <h2 class="section-title text-white mb-4">

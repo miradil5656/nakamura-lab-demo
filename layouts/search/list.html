@@ -85,7 +85,7 @@
     }
     new PagefindUI({
       element: '#search',
-      baseUrl: {{ "/" | relURL | jsonify }},
+      baseUrl: {{ .Site.Home.RelPermalink | jsonify }},
       showSubResults: true,
       translations: {
         placeholder: {{ i18n "search_placeholder" | jsonify }},

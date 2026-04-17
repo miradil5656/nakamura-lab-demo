@@ -1,12 +1,12 @@
 {{ define "main" }}
 
 {{- /* ── Hero ──────────────────────────────────────────────────────────── */}}
-<section style="background:#000;color:#fff" class="pt-28 pb-16 text-center">
+<section style="background:#000;color:#fff" class="pt-28 pb-16 text-center js-hero">
   <div class="max-w-3xl mx-auto px-4">
-    <p class="text-xs font-semibold uppercase tracking-widest mb-4" style="color:#3aaa70;letter-spacing:0.12em">
+    <p class="text-xs font-semibold uppercase tracking-widest mb-4 js-hero-super" style="color:#3aaa70;letter-spacing:0.12em">
       {{- if eq .Language.Lang "ja" }}ニュース{{ else }}News{{ end -}}
     </p>
-    <h1 class="font-display font-semibold text-white"
+    <h1 class="font-display font-semibold text-white js-hero-heading"
         style="font-size:clamp(2rem,4.5vw,3rem);line-height:1.07;letter-spacing:-0.28px">
       {{- if eq .Language.Lang "ja" -}}
       最新情報
@@ -23,7 +23,7 @@
 
     {{ $news := where .Site.RegularPages "Section" "news" }}
     {{ if $news }}
-    <div class="divide-y divide-black/10">
+    <div class="divide-y divide-black/10 js-stagger">
       {{ range $news }}
       <article class="py-7">
         <div class="flex flex-wrap items-center gap-3 mb-2">

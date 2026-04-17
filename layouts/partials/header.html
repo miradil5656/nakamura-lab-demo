@@ -5,7 +5,7 @@
     <div class="hidden md:flex items-center justify-between h-12">
 
       {{- /* Logo */}}
-      <a href="{{ "/" | relLangURL }}"
+      <a href="{{ .Site.Home.RelPermalink }}"
          class="flex-shrink-0 text-white font-semibold text-sm leading-tight hover:opacity-80 transition-opacity"
          style="letter-spacing:-0.022em">
         {{ i18n "header_logo_main" }}&nbsp;<span class="text-white/60 font-normal">{{ i18n "header_logo_sub" }}</span>
@@ -24,7 +24,7 @@
 
       {{- /* Search icon + Language toggle */}}
       <div class="flex items-center space-x-3">
-        <a href="{{ "/search" | relLangURL }}"
+        <a href="{{ relref . "/search" }}"
            class="nav-link p-1 hover:text-white transition-colors"
            aria-label="{{ if eq .Language.Lang "ja" }}検索{{ else }}Search{{ end }}">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -32,7 +32,7 @@
             <path d="M11 11l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
           </svg>
         </a>
-        <div class="flex items-center space-x-1 text-xs" style="letter-spacing:-0.010em">
+        <div class="flex items-center space-x-1 text-sm" style="letter-spacing:-0.010em">
         {{ range .AllTranslations }}
         <a href="{{ .Permalink }}"
            class="px-2 py-1 rounded-apple-sm transition-colors duration-150
@@ -49,7 +49,7 @@
 
     {{- /* Mobile nav bar */}}
     <div class="md:hidden flex items-center justify-between h-12">
-      <a href="{{ "/" | relLangURL }}"
+      <a href="{{ .Site.Home.RelPermalink }}"
          class="text-white font-semibold text-sm"
          style="letter-spacing:-0.022em">
         {{ i18n "header_logo_main" }}
@@ -86,7 +86,7 @@
       {{ end }}
     </div>
     {{- /* Search in mobile menu */}}
-    <a href="{{ "/search" | relLangURL }}"
+    <a href="{{ relref . "/search" }}"
        class="block py-2 nav-link text-sm"
        @click="open = false">
       {{ if eq .Language.Lang "ja" }}🔍 検索{{ else }}🔍 Search{{ end }}

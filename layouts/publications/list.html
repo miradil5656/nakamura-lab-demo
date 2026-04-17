@@ -1,12 +1,12 @@
 {{ define "main" }}
 
 {{- /* ── Hero ──────────────────────────────────────────────────────────── */}}
-<section style="background:#000;color:#fff" class="pt-28 pb-16 text-center">
+<section style="background:#000;color:#fff" class="pt-28 pb-16 text-center js-hero">
   <div class="max-w-3xl mx-auto px-4">
-    <p class="text-xs font-semibold uppercase tracking-widest mb-4" style="color:#3aaa70;letter-spacing:0.12em">
+    <p class="text-xs font-semibold uppercase tracking-widest mb-4 js-hero-super" style="color:#3aaa70;letter-spacing:0.12em">
       {{- if eq .Language.Lang "ja" }}業績{{ else }}Publications{{ end -}}
     </p>
-    <h1 class="font-display font-semibold text-white"
+    <h1 class="font-display font-semibold text-white js-hero-heading"
         style="font-size:clamp(2rem,4.5vw,3rem);line-height:1.07;letter-spacing:-0.28px">
       {{- if eq .Language.Lang "ja" -}}
       論文・学会発表
@@ -21,7 +21,7 @@
 <section style="background:#f5f5f7;color:#1d1d1f" class="py-20">
   <div class="max-w-4xl mx-auto px-4">
 
-    <h2 class="section-title mb-10">
+    <h2 class="section-title mb-10 js-fade-up">
       {{- if eq .Language.Lang "ja" }}学術論文{{ else }}Journal Papers{{ end -}}
     </h2>
 
@@ -37,12 +37,12 @@
     {{ $year := . }}
     {{ $yearPubs := where $pubs "year" $year }}
     {{ if $yearPubs }}
-    <div class="mb-12">
+    <div class="mb-12 js-fade-up">
       <h3 class="font-display font-semibold mb-6"
           style="font-size:1.5rem;line-height:1.2;letter-spacing:normal;color:#1d1d1f;border-bottom:1px solid rgba(0,0,0,0.1);padding-bottom:0.5rem">
         {{ $year }}
       </h3>
-      <ol class="space-y-6 list-none pl-0">
+      <ol class="space-y-6 list-none pl-0 js-stagger">
         {{ range $yearPubs }}
         <li class="card">
           <p class="font-display font-medium mb-1"

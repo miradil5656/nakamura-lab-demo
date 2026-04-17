@@ -1,12 +1,12 @@
 {{ define "main" }}
 
 {{- /* ── Hero ──────────────────────────────────────────────────────────── */}}
-<section style="background:#000;color:#fff" class="pt-28 pb-16 text-center">
+<section style="background:#000;color:#fff" class="pt-28 pb-16 text-center js-hero">
   <div class="max-w-3xl mx-auto px-4">
-    <p class="text-xs font-semibold uppercase tracking-widest mb-4" style="color:#3aaa70;letter-spacing:0.12em">
+    <p class="text-xs font-semibold uppercase tracking-widest mb-4 js-hero-super" style="color:#3aaa70;letter-spacing:0.12em">
       {{- if eq .Language.Lang "ja" }}メンバー{{ else }}Members{{ end -}}
     </p>
-    <h1 class="font-display font-semibold text-white"
+    <h1 class="font-display font-semibold text-white js-hero-heading"
         style="font-size:clamp(2rem,4.5vw,3rem);line-height:1.07;letter-spacing:-0.28px">
       {{- if eq .Language.Lang "ja" -}}
       量子ナノデバイス<br>研究グループ
@@ -20,11 +20,11 @@
 {{- /* ── Staff ────────────────────────────────────────────────────────── */}}
 <section style="background:#f5f5f7;color:#1d1d1f" class="py-20">
   <div class="max-w-4xl mx-auto px-4">
-    <h2 class="section-title mb-10">
+    <h2 class="section-title mb-10 js-fade-up">
       {{- if eq .Language.Lang "ja" }}教職員{{ else }}Faculty & Staff{{ end -}}
     </h2>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 js-stagger">
       {{ range .Site.Data.members.staff }}
       {{ if not (or (eq .name_ja "（助教 氏名）") (eq .name_en "(Assistant Professor Name)")) }}
       <div class="card flex gap-5 items-start">
@@ -69,11 +69,11 @@
 {{- /* ── Students ──────────────────────────────────────────────────────── */}}
 <section style="background:#000;color:#fff" class="py-20">
   <div class="max-w-4xl mx-auto px-4">
-    <h2 class="section-title text-white mb-10">
+    <h2 class="section-title text-white mb-10 js-fade-up">
       {{- if eq .Language.Lang "ja" }}大学院生{{ else }}Graduate Students{{ end -}}
     </h2>
 
-    <div class="divide-y divide-white/10">
+    <div class="divide-y divide-white/10 js-stagger">
       {{ range .Site.Data.members.students }}
       {{ if not (or (eq .name_ja "（博士課程学生）") (eq .name_ja "（修士課程学生）")) }}
       <div class="flex items-baseline gap-6 py-4">
@@ -98,11 +98,11 @@
       <p style="font-size:0.9375rem;line-height:1.6;letter-spacing:-0.016em;color:rgba(255,255,255,0.7)">
         {{- if eq .Language.Lang "ja" -}}
         当研究グループでは大学院生・研究生を随時受け付けています。詳しくは
-        <a href="{{ "/access" | relLangURL }}" class="link-cu-dark">アクセス・連絡先</a>
+        <a href="{{ relref . "/access" }}" class="link-cu-dark">アクセス・連絡先</a>
         よりお問い合わせください。
         {{- else -}}
         We welcome inquiries from prospective graduate students and researchers. Please contact us via the
-        <a href="{{ "/access" | relLangURL }}" class="link-cu-dark">Access &amp; Contact</a>
+        <a href="{{ relref . "/access" }}" class="link-cu-dark">Access &amp; Contact</a>
         page.
         {{- end -}}
       </p>
@@ -114,11 +114,11 @@
 {{ if .Site.Data.members.alumni }}
 <section style="background:#f5f5f7;color:#1d1d1f" class="py-20">
   <div class="max-w-4xl mx-auto px-4">
-    <h2 class="section-title mb-10">
+    <h2 class="section-title mb-10 js-fade-up">
       {{- if eq .Language.Lang "ja" }}卒業生・修了生{{ else }}Alumni{{ end -}}
     </h2>
 
-    <div class="divide-y divide-black/10">
+    <div class="divide-y divide-black/10 js-stagger">
       {{ range .Site.Data.members.alumni }}
       {{ if not (eq .name_ja "（卒業生）") }}
       <div class="flex items-baseline justify-between gap-4 py-4">

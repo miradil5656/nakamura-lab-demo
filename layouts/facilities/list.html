@@ -1,12 +1,12 @@
 {{ define "main" }}
 
 {{- /* ── Hero ──────────────────────────────────────────────────────────── */}}
-<section style="background:#000;color:#fff" class="pt-28 pb-16 text-center">
+<section style="background:#000;color:#fff" class="pt-28 pb-16 text-center js-hero">
   <div class="max-w-3xl mx-auto px-4">
-    <p class="text-xs font-semibold uppercase tracking-widest mb-4" style="color:#3aaa70;letter-spacing:0.12em">
+    <p class="text-xs font-semibold uppercase tracking-widest mb-4 js-hero-super" style="color:#3aaa70;letter-spacing:0.12em">
       {{- if eq .Language.Lang "ja" }}研究設備{{ else }}Facilities{{ end -}}
     </p>
-    <h1 class="font-display font-semibold text-white"
+    <h1 class="font-display font-semibold text-white js-hero-heading"
         style="font-size:clamp(2rem,4.5vw,3rem);line-height:1.07;letter-spacing:-0.28px">
       {{- if eq .Language.Lang "ja" -}}
       最先端の<br>ナノデバイス研究設備
@@ -20,10 +20,10 @@
 {{- /* ── Fabrication ───────────────────────────────────────────────────── */}}
 <section style="background:#f5f5f7;color:#1d1d1f" class="py-20">
   <div class="max-w-5xl mx-auto px-4">
-    <h2 class="section-title mb-3">
+    <h2 class="section-title mb-3 js-fade-up">
       {{- if eq .Language.Lang "ja" }}試料作製設備{{ else }}Fabrication Equipment{{ end -}}
     </h2>
-    <p class="section-subtitle" style="color:rgba(0,0,0,0.55);max-width:480px">
+    <p class="section-subtitle js-fade-up" style="color:rgba(0,0,0,0.55);max-width:480px">
       {{- if eq .Language.Lang "ja" -}}
       ナノスケールデバイスの作製に必要な一連の設備を保有しています。
       {{- else -}}
@@ -31,7 +31,7 @@
       {{- end -}}
     </p>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 js-stagger">
       {{ range .Site.Data.facilities.fabrication }}
       <div class="card">
         {{ if .photo }}
@@ -63,10 +63,10 @@
 {{- /* ── Evaluation ────────────────────────────────────────────────────── */}}
 <section style="background:#000;color:#fff" class="py-20">
   <div class="max-w-5xl mx-auto px-4">
-    <h2 class="section-title text-white mb-3">
+    <h2 class="section-title text-white mb-3 js-fade-up">
       {{- if eq .Language.Lang "ja" }}評価・測定設備{{ else }}Characterization & Measurement{{ end -}}
     </h2>
-    <p class="section-subtitle" style="color:rgba(255,255,255,0.5);max-width:480px">
+    <p class="section-subtitle js-fade-up" style="color:rgba(255,255,255,0.5);max-width:480px">
       {{- if eq .Language.Lang "ja" -}}
       極低温から室温まで、幅広い条件での量子輸送測定が可能です。
       {{- else -}}
@@ -74,7 +74,7 @@
       {{- end -}}
     </p>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 js-stagger">
       {{ range .Site.Data.facilities.evaluation }}
       <div class="card-dark">
         <h3 class="font-display font-semibold mb-2"

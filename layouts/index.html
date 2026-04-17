@@ -1,34 +1,34 @@
 {{ define "main" }}
 
 {{- /* ── Hero — full-width black, product-as-hero treatment ────────────── */}}
-<section style="background:#000;color:#fff" class="pt-28 pb-24 text-center">
+<section style="background:#000;color:#fff" class="pt-28 pb-24 text-center js-hero">
   <div class="max-w-3xl mx-auto px-4">
 
-    <p class="text-xs font-semibold uppercase tracking-widest mb-4" style="color:#3aaa70;letter-spacing:0.12em">
+    <p class="text-xs font-semibold uppercase tracking-widest mb-4 js-hero-super" style="color:#3aaa70;letter-spacing:0.12em">
       {{ i18n "hero_supertitle" }}
     </p>
 
-    <h1 class="font-display font-semibold text-white mb-4"
+    <h1 class="font-display font-semibold text-white mb-4 js-hero-heading"
         style="font-size:clamp(2.25rem,5vw,3.5rem);line-height:1.07;letter-spacing:-0.28px">
       {{ i18n "hero_heading_line1" }}<br>{{ i18n "hero_heading_line2" }}
     </h1>
 
-    <p class="text-white/70 mx-auto mb-10"
+    <p class="text-white/70 mx-auto mb-10 js-hero-body"
        style="font-size:1.0625rem;line-height:1.47;letter-spacing:-0.022em;max-width:480px">
       {{ i18n "hero_body" }}
     </p>
 
-    <div class="flex flex-wrap items-center justify-center gap-4">
-      <a href="{{ "/research" | relLangURL }}" class="btn-pill-dark">
+    <div class="flex flex-wrap items-center justify-center gap-4 js-hero-ctas">
+      <a href="{{ relref . "/research" }}" class="btn-pill-dark">
         {{ i18n "hero_cta_research" }}
       </a>
-      <a href="{{ "/publications" | relLangURL }}" class="btn-primary">
+      <a href="{{ relref . "/publications" }}" class="btn-primary">
         {{ i18n "hero_cta_publications" }}
       </a>
     </div>
 
     {{- /* Scroll indicator */}}
-    <div class="mt-16 flex justify-center opacity-30">
+    <div class="mt-16 flex justify-center js-scroll-indicator">
       <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
         <path d="M10 4v12M4 10l6 6 6-6" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
@@ -40,12 +40,12 @@
 <section style="background:#f5f5f7;color:#1d1d1f" class="py-20">
   <div class="max-w-5xl mx-auto px-4 text-center">
 
-    <h2 class="section-title">{{ i18n "research_section_title" }}</h2>
-    <p class="section-subtitle" style="color:rgba(0,0,0,0.6);max-width:500px;margin-left:auto;margin-right:auto">
+    <h2 class="section-title js-fade-up">{{ i18n "research_section_title" }}</h2>
+    <p class="section-subtitle js-fade-up" style="color:rgba(0,0,0,0.6);max-width:500px;margin-left:auto;margin-right:auto">
       {{ i18n "research_section_subtitle" }}
     </p>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mt-10">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mt-10 js-stagger">
       {{ $themes := slice
         (dict "icon" "⬡" "title_ja" "ファンデルワールスヘテロ接合" "title_en" "vdW Heterostructures"
               "desc_ja" "原子層材料を積層した量子デバイス" "desc_en" "Quantum devices from stacked 2D atomic layers")
@@ -71,7 +71,7 @@
     </div>
 
     <div class="mt-10">
-      <a href="{{ "/research" | relLangURL }}" class="btn-pill">
+      <a href="{{ relref . "/research" }}" class="btn-pill">
         {{ i18n "research_learn_more" }}
       </a>
     </div>
@@ -82,14 +82,14 @@
 <section style="background:#000;color:#fff" class="py-20">
   <div class="max-w-4xl mx-auto px-4">
 
-    <div class="flex items-end justify-between mb-10">
+    <div class="flex items-end justify-between mb-10 js-fade-up">
       <h2 class="section-title text-white">{{ i18n "news_section_title" }}</h2>
-      <a href="{{ "/news" | relLangURL }}" class="link-cu-dark text-sm shrink-0 mb-1">
+      <a href="{{ relref . "/news" }}" class="link-cu-dark text-sm shrink-0 mb-1">
         {{ i18n "news_view_all" }}
       </a>
     </div>
 
-    <div class="divide-y divide-white/10">
+    <div class="divide-y divide-white/10 js-stagger">
       {{ $news := where .Site.RegularPages "Section" "news" }}
       {{ range first 5 $news }}
       <article class="flex gap-6 py-5">
@@ -113,7 +113,7 @@
 
 {{- /* ── Access summary — #f5f5f7, informational close ───────────────── */}}
 <section style="background:#f5f5f7;color:#1d1d1f" class="py-16 text-center">
-  <div class="max-w-xl mx-auto px-4">
+  <div class="max-w-xl mx-auto px-4 js-fade-up">
     <h2 class="section-title mb-2">
       {{- if eq .Language.Lang "ja" }}アクセス・連絡先{{ else }}Access & Contact{{ end -}}
     </h2>
@@ -124,7 +124,7 @@
       Nishi-Chiba Campus, Chiba University
       {{- end -}}
     </p>
-    <a href="{{ "/access" | relLangURL }}" class="btn-pill">
+    <a href="{{ relref . "/access" }}" class="btn-pill">
       {{- if eq .Language.Lang "ja" }}アクセスを見る{{ else }}Get directions{{ end -}}
     </a>
   </div>

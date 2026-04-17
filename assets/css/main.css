@@ -46,7 +46,7 @@
   /* Nav links on glass */
   .nav-link {
     color: rgba(255, 255, 255, 0.8);
-    font-size: 0.75rem;       /* 12px */
+    font-size: 0.875rem;  /* 14px — matches logo text-sm */
     font-weight: 400;
     letter-spacing: -0.010em;
     transition: color 0.15s ease;
