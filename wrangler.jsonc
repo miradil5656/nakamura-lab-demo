@@ -1,5 +1,5 @@
 {
-  "name": "qnd-lab",
+  "name": "your-lab-name",  // ← Cloudflare Workers の名前に変更
   "compatibility_date": "2026-04-17",
   "assets": {
     "directory": "./public"
