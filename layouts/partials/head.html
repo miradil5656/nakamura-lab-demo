@@ -26,11 +26,10 @@
 <meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
 <meta name="twitter:image" content="{{ .Site.BaseURL }}{{ .Site.Params.og_image }}">
 
-{{- /* Google Fonts — Noto Sans JP only (Japanese glyphs) */}}
-{{- /* SF Pro Display/Text are system fonts on macOS/iOS — no download needed */}}
+{{- /* Google Fonts — Inter (body/headings) + Noto Sans JP (Japanese glyphs) */}}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
 
 {{- /* Scholar meta — publications section only */}}
 {{ if eq .Section "publications" }}

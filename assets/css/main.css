@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+/* No-JS / prefers-reduced-motion fallback: keep animated elements visible */
+@media (prefers-reduced-motion: reduce) {
+  .js-fade-up, .js-stagger > *, .js-hero, .js-hero > *,
+  .js-slide-left, .js-slide-right, .js-theme-label {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
 /* ──────────────────────────────────────────────────────────
    Base
    Apple's rendering philosophy: antialiased, tight, precise.
@@ -13,20 +22,20 @@
   }
 
   body {
-    font-family: "SF Pro Text", "Noto Sans JP", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    background-color: #000000;   /* page starts black, sections layer on top */
-    color: #1d1d1f;
+    font-family: Inter, "Noto Sans JP", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: #000000;
+    color: #1a1a1a;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, h4, h5 {
-    font-family: "SF Pro Display", "Noto Sans JP", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: Inter, "Noto Sans JP", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700;
   }
 
-  /* Apple-style focus ring — university green */
   :focus-visible {
-    outline: 2px solid #006633;
+    outline: 2px solid #76b900;
     outline-offset: 2px;
   }
 }
@@ -43,18 +52,19 @@
     -webkit-backdrop-filter: saturate(180%) blur(20px);
   }
 
-  /* Nav links on glass */
+  /* Nav links — Inter 14px weight 700 uppercase (NVIDIA label style) */
   .nav-link {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 0.875rem;  /* 14px — matches logo text-sm */
-    font-weight: 400;
-    letter-spacing: -0.010em;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.8125rem;  /* 13px */
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     transition: color 0.15s ease;
     text-decoration: none;
   }
 
   .nav-link:hover {
-    color: #ffffff;
+    color: #76b900;
   }
 
   .nav-link-active {
@@ -63,39 +73,41 @@
 
   /* ── Buttons ─────────────────────────────────────────── */
 
-  /* Primary CTA: filled university green */
+  /* Primary CTA — green border, transparent fill (NVIDIA signal style) */
+  /* On dark bg: white text, green border */
   .btn-primary {
     display: inline-flex;
     align-items: center;
-    background-color: #006633;
+    background-color: transparent;
     color: #ffffff;
-    border-radius: 8px;
-    padding: 8px 18px;
-    font-size: 0.94rem;        /* 15px — slightly smaller than Apple's 17px for this use case */
-    font-weight: 400;
-    letter-spacing: -0.022em;
+    border: 2px solid #76b900;
+    border-radius: 2px;
+    padding: 10px 20px;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
     line-height: 1;
     white-space: nowrap;
-    transition: background-color 0.15s ease;
+    transition: background-color 0.15s ease, color 0.15s ease;
     text-decoration: none;
   }
 
   .btn-primary:hover {
-    background-color: #005529;
+    background-color: #76b900;
+    color: #000000;
   }
 
-  /* Pill link — on dark bg (black sections) */
-  /* Signature Apple "Learn more" style */
+  /* Dark section secondary button — white border outline */
   .btn-pill-dark {
     display: inline-flex;
     align-items: center;
     color: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    border-radius: 980px;
-    padding: 8px 18px;
-    font-size: 0.94rem;
-    font-weight: 400;
-    letter-spacing: -0.022em;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 2px;
+    padding: 10px 20px;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
     line-height: 1;
     white-space: nowrap;
     transition: background-color 0.15s ease, border-color 0.15s ease;
@@ -103,92 +115,107 @@
   }
 
   .btn-pill-dark:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.9);
+    border-color: #76b900;
+    color: #76b900;
   }
 
-  /* Pill link — on light bg */
+  /* Light section button — green border, green text */
   .btn-pill {
     display: inline-flex;
     align-items: center;
-    color: #006633;
-    border: 1px solid #006633;
-    border-radius: 980px;
-    padding: 8px 18px;
-    font-size: 0.94rem;
-    font-weight: 400;
-    letter-spacing: -0.022em;
+    color: #000000;
+    background-color: transparent;
+    border: 2px solid #76b900;
+    border-radius: 2px;
+    padding: 10px 20px;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
     line-height: 1;
     white-space: nowrap;
-    transition: background-color 0.15s ease;
+    transition: background-color 0.15s ease, color 0.15s ease;
     text-decoration: none;
   }
 
   .btn-pill:hover {
-    background-color: rgba(0, 102, 51, 0.05);
-    text-decoration: underline;
+    background-color: #76b900;
+    color: #000000;
   }
 
   /* ── Section typography ─────────────────────────────── */
 
-  /* Apple section title: 40px Display, weight 600, tight */
-  /* DESIGN.md: Section Heading letter-spacing = normal (not negative — spec only tightens at hero/body sizes) */
+  /* Section heading — Inter 700, tight line-height */
   .section-title {
-    font-family: "SF Pro Display", "Noto Sans JP", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-    font-weight: 600;
+    font-family: Inter, "Noto Sans JP", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-weight: 700;
     line-height: 1.10;
     letter-spacing: normal;
     margin-bottom: 0.5rem;
   }
 
   .section-subtitle {
-    font-family: "SF Pro Text", "Noto Sans JP", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 1.0625rem;      /* 17px */
+    font-family: Inter, "Noto Sans JP", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1rem;
     font-weight: 400;
-    line-height: 1.47;
-    letter-spacing: -0.022em;
+    line-height: 1.6;
+    letter-spacing: normal;
     margin-bottom: 2rem;
+    color: #757575;
   }
 
-  /* ── Research theme cards ───────────────────────────── */
-  /* Apple-style: bg-white (on #f5f5f7 section), 8px radius, no border, no shadow */
-  /* DESIGN.md: Standard card = 8px. 12px is for "feature panels" — keep .card-dark at 12px for elevated dark cards */
+  /* ── Cards (NVIDIA-style: sharp 2px radius, subtle shadow) */
   .card {
     background-color: #ffffff;
-    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
     padding: 1.5rem;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 4px;
+    transition: box-shadow 0.15s ease, border-color 0.15s ease;
+  }
+
+  .card:hover {
+    border-color: #76b900;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
   }
 
   .card-dark {
-    background-color: #272729;
-    border-radius: 12px;
+    background-color: #1a1a1a;
+    border: 1px solid #3a3a3a;
+    border-radius: 2px;
     padding: 1.5rem;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 5px;
   }
 
-  /* ── Inline "Learn more" text link ─────────────────── */
-  /* Apple's standard body link: colored, underline on hover */
+  .card-dark:hover {
+    border-color: #76b900;
+  }
+
+  /* ── Text links ───────────────────────────────────────── */
   .link-cu {
-    color: #006633;
-    letter-spacing: -0.016em;
+    color: #76b900;
     font-size: 0.875rem;
+    font-weight: 700;
     text-decoration: none;
-    transition: text-decoration 0.1s;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.1s;
   }
 
   .link-cu:hover {
-    text-decoration: underline;
+    border-bottom-color: #76b900;
   }
 
+  /* On dark bg — brighter legible green */
   .link-cu-dark {
-    color: #3aaa70;   /* brighter green — legible on black bg */
-    letter-spacing: -0.016em;
+    color: #bff230;
     font-size: 0.875rem;
+    font-weight: 700;
     text-decoration: none;
-    transition: text-decoration 0.1s;
+    transition: color 0.1s;
   }
 
   .link-cu-dark:hover {
+    color: #76b900;
     text-decoration: underline;
   }
 }

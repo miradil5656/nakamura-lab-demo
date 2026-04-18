@@ -8,31 +8,34 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // ── Background fields ─────────────────────────
-        // Section bg alternates: black → light → white (Apple cinematic rhythm)
-        'apple-black': '#000000',
-        'apple-light': '#f5f5f7',   // not quite white — slight blue-gray tint
-        'near-black':  '#1d1d1f',   // primary text on light bg, slightly warm
+        // ── Backgrounds ───────────────────────────────────
+        'site-black':  '#000000',
+        'site-light':  '#f5f5f7',
+        'near-black':  '#1a1a1a',
 
-        // ── Dark surfaces (cards on dark sections) ────
-        'surface-1': '#272729',
-        'surface-2': '#2a2a2d',
+        // ── Dark surfaces ─────────────────────────────────
+        'surface-1': '#1a1a1a',
+        'surface-2': '#272729',
 
-        // ── Interactive ────────────────────────────────
-        // University green takes the Apple Blue (#0071e3) role.
-        // Used ONLY for interactive elements: links, CTAs, focus rings.
-        'cu-green':        '#006633',
-        'cu-green-dark':   '#005529',
-        'cu-green-bright': '#3aaa70',  // higher luminance — legible on black bg
+        // ── Lab accent (NVIDIA-inspired electric green) ───
+        // Signal color — borders, underlines, CTAs only. Never fills.
+        'lab-green':        '#76b900',
+        'lab-green-bright': '#bff230',
+        'lab-green-dark':   '#5a8c00',
 
-        // ── Legacy aliases (keeps old templates from breaking) ────
+        // ── Legacy aliases — keep layouts from breaking ───
+        'cu-green':        '#76b900',
+        'cu-green-dark':   '#5a8c00',
+        'cu-green-bright': '#bff230',
+        'apple-black':     '#000000',
+        'apple-light':     '#f5f5f7',
         primary: {
-          DEFAULT: '#006633',
-          light:   '#3aaa70',
-          dark:    '#005529',
+          DEFAULT: '#76b900',
+          light:   '#bff230',
+          dark:    '#5a8c00',
         },
         accent: {
-          DEFAULT: '#1d1d1f',
+          DEFAULT: '#1a1a1a',
         },
         base: {
           DEFAULT: '#ffffff',
@@ -42,22 +45,22 @@ module.exports = {
       },
 
       fontFamily: {
-        // SF Pro is a macOS/iOS system font — no CDN download.
-        // Noto Sans JP provides Japanese glyphs as the first fallback.
-        display: ['"SF Pro Display"', '"Noto Sans JP"', '"Helvetica Neue"', 'Helvetica', 'Arial', 'sans-serif'],
-        body:    ['"SF Pro Text"',    '"Noto Sans JP"', '"Helvetica Neue"', 'Helvetica', 'Arial', 'sans-serif'],
-        sans:    ['"SF Pro Text"',    '"Noto Sans JP"', '"Helvetica Neue"', 'Helvetica', 'Arial', 'sans-serif'],
+        // Inter — geometric, industrial. Loads from Google Fonts.
+        display: ['Inter', '"Noto Sans JP"', 'Arial', 'Helvetica', 'sans-serif'],
+        body:    ['Inter', '"Noto Sans JP"', 'Arial', 'Helvetica', 'sans-serif'],
+        sans:    ['Inter', '"Noto Sans JP"', 'Arial', 'Helvetica', 'sans-serif'],
       },
 
-      // ── Apple letter-spacing ─────────────────────────
+      // ── Letter-spacing ───────────────────────────────────
       letterSpacing: {
         'hero':    '-0.28px',
-        'body-ap': '-0.022em',    // ~-0.374px at 17px
-        'caption': '-0.016em',    // ~-0.224px at 14px
-        'micro':   '-0.010em',    // ~-0.12px at 12px
+        'body-ap': '-0.022em',
+        'caption': '-0.016em',
+        'micro':   '-0.010em',
+        'nav':     '0.08em',     // uppercase nav labels
       },
 
-      // ── Apple line-heights ───────────────────────────
+      // ── Line-heights ─────────────────────────────────────
       lineHeight: {
         'hero':    '1.07',
         'heading': '1.10',
@@ -66,18 +69,20 @@ module.exports = {
         'body-ap': '1.47',
       },
 
-      // ── Apple border-radius scale ─────────────────────
+      // ── Border-radius (NVIDIA-style sharp corners) ────────
       borderRadius: {
-        'apple-sm':   '5px',
-        'apple':      '8px',
-        'apple-input':'11px',
-        'apple-card': '12px',
-        'pill':       '980px',
+        'nvidia':     '2px',    // primary — buttons, cards
+        'apple-sm':   '2px',    // legacy alias → sharp
+        'apple':      '4px',
+        'apple-input':'4px',
+        'apple-card': '4px',
+        'pill':       '980px',  // only for badges
       },
 
-      // ── Apple card shadow ─────────────────────────────
+      // ── Shadows ──────────────────────────────────────────
       boxShadow: {
-        'apple': 'rgba(0, 0, 0, 0.22) 3px 5px 30px 0px',
+        'nvidia': 'rgba(0, 0, 0, 0.3) 0px 0px 5px 0px',
+        'apple':  'rgba(0, 0, 0, 0.3) 0px 0px 5px 0px',
       },
     },
   },

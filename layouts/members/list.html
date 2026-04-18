@@ -3,7 +3,7 @@
 {{- /* ── Hero ──────────────────────────────────────────────────────────── */}}
 <section style="background:#000;color:#fff" class="pt-28 pb-16 text-center js-hero">
   <div class="max-w-3xl mx-auto px-4">
-    <p class="text-xs font-semibold uppercase tracking-widest mb-4 js-hero-super" style="color:#3aaa70;letter-spacing:0.12em">
+    <p class="text-xs font-semibold uppercase tracking-widest mb-4 js-hero-super" style="color:#76b900;letter-spacing:0.12em">
       {{- if eq .Language.Lang "ja" }}メンバー{{ else }}Members{{ end -}}
     </p>
     <h1 class="font-display font-semibold text-white js-hero-heading"
@@ -41,7 +41,7 @@
              style="font-size:1.0625rem;line-height:1.3;letter-spacing:normal;color:#1d1d1f">
             {{- if eq $.Language.Lang "ja" }}{{ .name_ja }}{{ else }}{{ .name_en }}{{ end -}}
           </p>
-          <p class="mb-2" style="font-size:0.875rem;color:#006633;font-weight:500">
+          <p class="mb-2" style="font-size:0.875rem;color:#76b900;font-weight:500">
             {{- if eq $.Language.Lang "ja" }}{{ .title_ja }}{{ else }}{{ .title_en }}{{ end -}}
           </p>
           {{ if .email }}
@@ -73,14 +73,14 @@
       {{ range .Site.Data.members.students }}
       {{ if not (or (eq .name_ja "（博士課程学生）") (eq .name_ja "（修士課程学生）")) }}
       <div class="flex items-baseline gap-6 py-4">
-        <span class="text-xs shrink-0 w-8 font-mono" style="color:#3aaa70">{{ .grade }}</span>
+        <span class="text-xs shrink-0 w-8 font-mono" style="color:#76b900">{{ .grade }}</span>
         <span style="font-size:0.9375rem;letter-spacing:-0.016em">
           {{- if eq $.Language.Lang "ja" }}{{ .name_ja }}{{ else }}{{ .name_en }}{{ end -}}
         </span>
       </div>
       {{ else }}
       <div class="flex items-baseline gap-6 py-4">
-        <span class="text-xs shrink-0 w-8 font-mono" style="color:#3aaa70">{{ .grade }}</span>
+        <span class="text-xs shrink-0 w-8 font-mono" style="color:#76b900">{{ .grade }}</span>
         <span style="font-size:0.9375rem;letter-spacing:-0.016em;color:rgba(255,255,255,0.35)">
           {{- if eq $.Language.Lang "ja" }}（メンバー募集中）{{ else }}(To be announced){{ end -}}
         </span>
@@ -119,7 +119,7 @@
       {{ if not (eq .name_ja "（卒業生）") }}
       <div class="flex items-baseline justify-between gap-4 py-4">
         <div class="flex items-baseline gap-4">
-          <span class="text-xs shrink-0 font-mono" style="color:#006633">{{ .year }}</span>
+          <span class="text-xs shrink-0 font-mono" style="color:#76b900">{{ .year }}</span>
           <span style="font-size:0.9375rem;letter-spacing:-0.016em">
             {{- if eq $.Language.Lang "ja" }}{{ .name_ja }}{{ else }}{{ .name_en }}{{ end -}}
           </span>

@@ -3,7 +3,7 @@
 {{- /* ── Hero ──────────────────────────────────────────────────────────── */}}
 <section style="background:#000;color:#fff" class="pt-28 pb-16 text-center js-hero">
   <div class="max-w-3xl mx-auto px-4">
-    <p class="text-xs font-semibold uppercase tracking-widest mb-4 js-hero-super" style="color:#3aaa70;letter-spacing:0.12em">
+    <p class="text-xs font-semibold uppercase tracking-widest mb-4 js-hero-super" style="color:#76b900;letter-spacing:0.12em">
       {{- if eq .Language.Lang "ja" }}ニュース{{ else }}News{{ end -}}
     </p>
     <h1 class="font-display font-semibold text-white js-hero-heading"
@@ -32,7 +32,7 @@
           </time>
           {{ range .Params.categories }}
           <span class="text-xs px-2 py-0.5 rounded-full"
-                style="background:rgba(0,102,51,0.08);color:#006633;font-weight:500">
+                style="background:rgba(118,185,0,0.10);color:#76b900;font-weight:500">
             {{ . }}
           </span>
           {{ end }}
