@@ -1,30 +1,29 @@
 # i18n/en.yaml — English UI strings
-# ↓ Change lab name and university here
 
 # Header
-header_logo_main: "YOUR_LAB_NAME_SHORT_EN"  # e.g. QND Research
-header_logo_sub: Group
+header_logo_main: "Adv. Materials Sci."
+header_logo_sub: Laboratory
 header_menu_label: Toggle navigation menu
 header_lang_switch: Switch language
 
 # Footer
-footer_lab_name: "YOUR_LAB_NAME_EN"         # e.g. Quantum Nanodevice Research Group
-footer_affiliation: "YOUR_AFFILIATION_EN"   # e.g. Graduate School of Science and Engineering, Chiba University
+footer_lab_name: "Advanced Materials Science Laboratory"
+footer_affiliation: "Department of Physics, School of Science, Tokyo Institute of Technology"
 footer_sitemap: Site Map
 footer_contact: Contact
-footer_address: "YOUR_ADDRESS_EN"           # e.g. 1-33 Yayoi-cho, Inage-ku, Chiba, Japan
+footer_address: "Room 308, S6 Building, 2-12-1 Ookayama, Meguro-ku, Tokyo 152-8551, Japan"
 
 # Hero (homepage)
-hero_supertitle: "YOUR_UNIVERSITY_EN"
-hero_heading_line1: "YOUR_HERO_LINE1_EN"    # e.g. Exploring Quantum
-hero_heading_line2: "YOUR_HERO_LINE2_EN"    # e.g. Nanodevices for Tomorrow
-hero_body: "YOUR_HERO_BODY_EN"              # 2-3 sentence description of the lab
+hero_supertitle: "Tokyo Institute of Technology"
+hero_heading_line1: "Pushing the Frontiers"
+hero_heading_line2: "of Quantum Materials"
+hero_body: "We explore the synthesis and characterization of two-dimensional materials — graphene, transition metal dichalcogenides, and topological insulators — and their applications in spintronic devices. From quantum phenomena to next-generation technologies."
 hero_cta_research: Our Research
 hero_cta_publications: Publications
 
 # Research section (homepage)
 research_section_title: Research Themes
-research_section_subtitle: "YOUR_RESEARCH_SUBTITLE_EN"
+research_section_subtitle: "2D Materials · Topological Properties · Spintronics"
 research_learn_more: Learn More
 
 # News section (homepage)
@@ -43,4 +42,26 @@ search_placeholder: Search the site…
 search_empty: No results found.
 
 # Common
-common_university: "YOUR_UNIVERSITY_EN"     # e.g. Chiba University
+common_university: "Tokyo Institute of Technology"
+
+# Access page
+access_hero_line1: "Tokyo Institute of Technology"
+access_hero_line2: "Ookayama Campus"
+access_lab_full_name: "Advanced Materials Science Lab (Nakamura Lab)"
+access_affiliation_line1: "Department of Physics, School of Science"
+access_affiliation_line2: "Tokyo Institute of Technology"
+access_address_html: "Room 308, S6 Building<br>Tokyo Institute of Technology, Ookayama Campus<br>2-12-1 Ookayama, Meguro-ku<br>Tokyo 152-8551, Japan"
+access_train_directions: "1 min walk from Tokyu Meguro/Oimachi Line \"Ookayama\" Station"
+access_car_directions: "About 10 min from Metropolitan Expressway Route 2 \"Meguro\" exit. Parking available on campus."
+
+# Members page hero
+members_hero_line1: "Advanced Materials Science"
+members_hero_line2: "Laboratory"
+
+# Research page hero
+research_hero_line1: "Pushing the Frontiers"
+research_hero_line2: "of Quantum Materials"
+research_hero_body: "We investigate quantum transport phenomena in 2D materials toward next-generation nanoscale quantum devices."
+
+# Index page
+index_access_campus: "Ookayama Campus, Tokyo Institute of Technology"

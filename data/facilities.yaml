@@ -1,17 +1,52 @@
 ## data/facilities.yaml — 研究設備データ
-## 更新方法: このファイルを直接編集してください。
 ## カテゴリ: fabrication（作製装置）/ evaluation（評価設備）
 
 fabrication:
-  - name_ja: "{{装置名（日本語）}}"
-    name_en: "{{Equipment Name (English)}}"
-    description_ja: "{{説明（日本語）}}"
-    description_en: "{{Description (English)}}"
+  - name_ja: "化学気相堆積（CVD）装置"
+    name_en: "Chemical Vapor Deposition (CVD) System"
+    description_ja: "グラフェン・MoS₂・WS₂などの二次元材料を大面積基板上に高品質合成するための熱CVD装置。ガス流量・温度・圧力を精密制御可能。"
+    description_en: "Thermal CVD system for large-area synthesis of 2D materials (graphene, MoS₂, WS₂). Precise control of gas flow, temperature, and pressure."
+    photo: ""
+
+  - name_ja: "分子線エピタキシー（MBE）装置"
+    name_en: "Molecular Beam Epitaxy (MBE) System"
+    description_ja: "超高真空下でBi₂Se₃・Bi₂Te₃などのトポロジカル絶縁体薄膜を原子層精度で成長させる装置。RHEED内蔵。"
+    description_en: "Ultra-high vacuum MBE system for atomic-layer-precise growth of topological insulators (Bi₂Se₃, Bi₂Te₃). Equipped with RHEED."
+    photo: ""
+
+  - name_ja: "電子線リソグラフィ（EBL）システム"
+    name_en: "Electron Beam Lithography (EBL) System"
+    description_ja: "10 nm以下のパターニング精度を持つ電子線描画システム。二次元材料デバイスの微細加工に使用。"
+    description_en: "Electron beam lithography system with sub-10 nm patterning resolution for fabrication of 2D material devices."
+    photo: ""
+
+  - name_ja: "ドライエッチング装置（RIE/ICP）"
+    name_en: "Dry Etching System (RIE/ICP)"
+    description_ja: "SF₆・Cl₂・O₂プラズマによる各種材料の微細加工。二次元材料のメサ加工・電極形成に対応。"
+    description_en: "Reactive ion etching system with SF₆/Cl₂/O₂ plasma for mesa patterning and electrode definition of 2D material devices."
     photo: ""
 
 evaluation:
-  - name_ja: "{{装置名（日本語）}}"
-    name_en: "{{Equipment Name (English)}}"
-    description_ja: "{{説明（日本語）}}"
-    description_en: "{{Description (English)}}"
+  - name_ja: "角度分解光電子分光（ARPES）装置"
+    name_en: "Angle-Resolved Photoemission Spectroscopy (ARPES) System"
+    description_ja: "紫外線光源と半球型電子アナライザを組み合わせたARPESシステム。トポロジカル絶縁体のバンド構造・表面状態の直接観察が可能。"
+    description_en: "ARPES system combining UV light source and hemispherical electron analyzer for direct observation of band structure and surface states in topological materials."
+    photo: ""
+
+  - name_ja: "希釈冷凍機・極低温輸送測定システム"
+    name_en: "Dilution Refrigerator / Cryogenic Transport Measurement System"
+    description_ja: "10 mKまで冷却可能な希釈冷凍機。15 T超伝導マグネット搭載。量子ホール効果・超伝導・近藤効果などの量子輸送現象を測定。"
+    description_en: "Dilution refrigerator reaching 10 mK with 15 T superconducting magnet. Used for measurement of quantum Hall effect, superconductivity, and Kondo physics."
+    photo: ""
+
+  - name_ja: "顕微ラマン・フォトルミネッセンス分光システム"
+    name_en: "Confocal Raman / Photoluminescence Spectroscopy System"
+    description_ja: "空間分解能100 nm以下の共焦点顕微鏡ベースのラマン・PL分光装置。二次元材料の欠陥評価・歪み・谷偏極の可視化が可能。"
+    description_en: "Confocal micro-Raman/PL spectroscopy system with sub-100 nm spatial resolution for characterization of defects, strain, and valley polarization in 2D materials."
+    photo: ""
+
+  - name_ja: "走査型トンネル顕微鏡（STM）"
+    name_en: "Scanning Tunneling Microscope (STM)"
+    description_ja: "超高真空・低温対応の走査型トンネル顕微鏡。原子分解能での表面形状・局所状態密度・スピン偏極の測定が可能。"
+    description_en: "Ultra-high vacuum low-temperature STM for atomic-resolution imaging of surface morphology, local density of states, and spin polarization."
     photo: ""

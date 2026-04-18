@@ -1,4 +1,4 @@
 ---
 title: "Access & Contact"
-description: "How to reach {{LAB_NAME_EN}}, {{UNIVERSITY_EN}}."
+description: "How to reach Advanced Materials Science Laboratory, Tokyo Institute of Technology."
 ---

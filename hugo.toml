@@ -1,5 +1,5 @@
-baseURL = "https://your-lab.example.com/"
-title = "YOUR_LAB_NAME — YOUR_UNIVERSITY"
+baseURL = "https://nakamura-lab.titech.example.com/"
+title = "先端材料科学研究室 — 東京工業大学"
 defaultContentLanguage = "ja"
 defaultContentLanguageInSubdir = false
 enableRobotsTXT = true
@@ -7,13 +7,13 @@ enableRobotsTXT = true
 [languages.ja]
   weight = 1
   languageCode = "ja"
-  title = "YOUR_LAB_NAME — YOUR_UNIVERSITY"
+  title = "先端材料科学研究室 — 東京工業大学"
 
 [languages.en]
   weight = 2
   languageCode = "en"
   contentDir = "content/en"
-  title = "YOUR_LAB_NAME_EN — YOUR_UNIVERSITY_EN"
+  title = "Advanced Materials Science Laboratory — Tokyo Institute of Technology"
 
 [markup.goldmark.renderer]
   unsafe = true
@@ -28,10 +28,34 @@ enableRobotsTXT = true
   priority = 0.5
 
 [params]
-  description = "YOUR_UNIVERSITY YOUR_LAB_NAME の公式サイト。"
-  description_en = "Official site of YOUR_LAB_NAME_EN, YOUR_UNIVERSITY_EN."
-  author = "YOUR_PI_NAME"
+  description = "東京工業大学 先端材料科学研究室の公式サイト。二次元材料・トポロジカル物性・スピントロニクスの研究を行っています。"
+  description_en = "Official site of Advanced Materials Science Laboratory, Tokyo Institute of Technology. Research on 2D materials, topological properties, and spintronics."
+  author = "中村 健一"
   og_image = "/images/og/og-default.jpg"
+
+  # ── Contact (edit these when forking) ──
+  email_user   = "nakamura"
+  email_domain = "phys.titech.ac.jp"
+
+  # ── PI / Professor ──
+  pi_name_ja    = "中村 健一"
+  pi_name_en    = "Kenichi Nakamura"
+  pi_given_name = "Kenichi"
+  pi_family_name = "Nakamura"
+
+  # ── University ──
+  university_name_ja = "東京工業大学"
+  university_name_en = "Tokyo Institute of Technology"
+  university_url     = "https://www.titech.ac.jp/"
+
+  # ── Lab ──
+  lab_name_ja      = "先端材料科学研究室"
+  lab_name_en_full = "Advanced Materials Science Laboratory (Nakamura Lab)"
+
+  # ── Address (for JSON-LD) ──
+  address_street = "2-12-1 Ookayama, Meguro-ku"
+  address_city   = "Tokyo"
+  address_postal = "152-8551"
 
 [module]
   [module.hugoVersion]

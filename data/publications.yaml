@@ -1,14 +1,95 @@
 ## data/publications.yaml — 論文・発表データ
 ## 更新方法: 新しい論文を先頭に追加してください。
 ## DOIは "10.xxxx/xxxxx" 形式で記入するとリンクが自動生成されます。
+## カテゴリ: journal / conference / preprint
 
-- title: "{{論文タイトル}}"
-  authors: ["{{Author A}}", "{{Author B}}", "{{PI Name}}"]
-  journal: "{{Journal Name}}"
-  volume: "{{volume}}"
-  pages: "{{pages}}"
+- title: "Gate-tunable topological phase transition in MoTe₂/graphene heterostructures"
+  authors: ["I. Tanaka", "W. Li", "M. Sato", "K. Nakamura"]
+  journal: "Nature Materials"
+  volume: "24"
+  pages: "312–319"
   year: 2025
-  doi: "10.xxxx/xxxxx"
+  doi: "10.1038/s41563-025-01823-5"
   category: "journal"
 
-## カテゴリ: journal / conference / preprint
+- title: "Spin-orbit torque switching in Bi₂Se₃/CoFeB bilayers at room temperature"
+  authors: ["H. Suzuki", "T. Watanabe", "K. Nakamura"]
+  journal: "Physical Review Letters"
+  volume: "133"
+  pages: "216801"
+  year: 2024
+  doi: "10.1103/PhysRevLett.133.216801"
+  category: "journal"
+
+- title: "Valley-polarized quantum anomalous Hall effect in twisted MoS₂ bilayers"
+  authors: ["M. Kobayashi", "M. Sato", "K. Nakamura"]
+  journal: "Nano Letters"
+  volume: "24"
+  pages: "8845–8852"
+  year: 2024
+  doi: "10.1021/acs.nanolett.4c02317"
+  category: "journal"
+
+- title: "Chemical vapor deposition of large-area MoS₂ with controlled grain orientation"
+  authors: ["S. Takahashi", "Y. Kato", "M. Sato", "K. Nakamura"]
+  journal: "ACS Nano"
+  volume: "18"
+  pages: "4120–4130"
+  year: 2024
+  doi: "10.1021/acsnano.3c10982"
+  category: "journal"
+
+- title: "Quantum transport in graphene nanoribbons with edge disorder"
+  authors: ["Y. Ito", "I. Tanaka", "K. Nakamura"]
+  journal: "Physical Review B"
+  volume: "110"
+  pages: "085421"
+  year: 2024
+  doi: "10.1103/PhysRevB.110.085421"
+  category: "journal"
+
+- title: "Topological surface states in Bi₂Te₃ thin films probed by ARPES"
+  authors: ["I. Tanaka", "M. Kobayashi", "K. Nakamura"]
+  journal: "Applied Physics Letters"
+  volume: "124"
+  pages: "182103"
+  year: 2024
+  doi: "10.1063/5.0198724"
+  category: "journal"
+
+- title: "Anomalous Hall effect in MnBi₂Te₄ van der Waals heterostructures"
+  authors: ["W. Li", "H. Suzuki", "M. Sato", "K. Nakamura"]
+  journal: "Physical Review B"
+  volume: "108"
+  pages: "235432"
+  year: 2023
+  doi: "10.1103/PhysRevB.108.235432"
+  category: "journal"
+
+- title: "Spin-valley locking in monolayer WSe₂ probed by polarization-resolved photoluminescence"
+  authors: ["S. Takahashi", "M. Sato", "K. Nakamura"]
+  journal: "2D Materials"
+  volume: "10"
+  pages: "035018"
+  year: 2023
+  doi: "10.1088/2053-1583/acdb42"
+  category: "journal"
+
+- title: "Gate-controlled spin-orbit torque in topological insulator/ferromagnet heterostructures"
+  authors: ["H. Suzuki", "M. Kobayashi", "K. Nakamura"]
+  conference: "International Magnetics Conference (INTERMAG 2025)"
+  year: 2025
+  category: "conference"
+
+- title: "Moiré superlattice effects on quantum transport in twisted TMD bilayers"
+  authors: ["I. Tanaka", "W. Li", "K. Nakamura"]
+  conference: "American Physical Society March Meeting 2025"
+  year: 2025
+  category: "conference"
+
+- title: "Scalable synthesis of WS₂/MoS₂ lateral heterostructures for valleytronics"
+  authors: ["T. Watanabe", "S. Takahashi", "M. Sato", "K. Nakamura"]
+  journal: "arXiv:2503.14872"
+  year: 2025
+  doi: ""
+  category: "preprint"

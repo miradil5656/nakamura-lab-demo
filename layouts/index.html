@@ -118,11 +118,7 @@
       {{- if eq .Language.Lang "ja" }}アクセス・連絡先{{ else }}Access & Contact{{ end -}}
     </h2>
     <p style="font-size:0.9375rem;line-height:1.47;letter-spacing:-0.022em;color:rgba(0,0,0,0.6)" class="mb-6">
-      {{- if eq .Language.Lang "ja" -}}
-      千葉大学 西千葉キャンパス
-      {{- else -}}
-      Nishi-Chiba Campus, Chiba University
-      {{- end -}}
+      {{ i18n "index_access_campus" }}
     </p>
     <a href="{{ relref . "/access" }}" class="btn-pill">
       {{- if eq .Language.Lang "ja" }}アクセスを見る{{ else }}Get directions{{ end -}}

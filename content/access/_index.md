@@ -1,4 +1,4 @@
 ---
 title: "アクセス・連絡先"
-description: "{{UNIVERSITY}} {{LAB_NAME}}へのアクセス方法と連絡先。"
+description: "東京工業大学 先端材料科学研究室へのアクセス方法と連絡先。"
 ---

@@ -36,7 +36,7 @@
         <address class="not-italic text-xs leading-relaxed space-y-1" style="letter-spacing:-0.010em">
           <p>{{ i18n "footer_address" }}</p>
           <p>
-            aoki<span class="select-none" aria-hidden="true">_at_</span>faculty.chiba-u.jp
+            {{ .Site.Params.email_user }}<span class="select-none" aria-hidden="true">_at_</span>{{ .Site.Params.email_domain }}
           </p>
         </address>
       </div>

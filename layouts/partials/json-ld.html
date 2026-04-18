@@ -8,39 +8,39 @@
 {{- /* ── Shared sub-objects ─────────────────────────────────────────── */}}
 {{- $parentOrg := dict
   "@type"         "EducationalOrganization"
-  "name"          "千葉大学"
-  "alternateName" "Chiba University"
-  "url"           "https://www.chiba-u.ac.jp/"
+  "name"          .Site.Params.university_name_ja
+  "alternateName" .Site.Params.university_name_en
+  "url"           .Site.Params.university_url
 -}}
 {{- $address := dict
   "@type"           "PostalAddress"
-  "streetAddress"   "1-33 Yayoi-cho, Inage-ku"
-  "addressLocality" "Chiba-shi"
-  "addressRegion"   "Chiba"
-  "postalCode"      "263-8522"
+  "streetAddress"   .Site.Params.address_street
+  "addressLocality" .Site.Params.address_city
+  "addressRegion"   .Site.Params.address_city
+  "postalCode"      .Site.Params.address_postal
   "addressCountry"  "JP"
 -}}
 {{- $contact := dict
   "@type"             "ContactPoint"
   "contactType"       "academic inquiry"
-  "email"             "aoki@faculty.chiba-u.jp"
+  "email"             (printf "%s@%s" .Site.Params.email_user .Site.Params.email_domain)
   "availableLanguage" (slice "Japanese" "English")
 -}}
 {{- $professor := dict
   "@type"      "Person"
-  "name"       "Nobuyuki Aoki"
-  "givenName"  "Nobuyuki"
-  "familyName" "Aoki"
+  "name"       .Site.Params.pi_name_en
+  "givenName"  .Site.Params.pi_given_name
+  "familyName" .Site.Params.pi_family_name
   "jobTitle"   "Professor"
-  "worksFor"   (dict "@type" "EducationalOrganization" "name" "Chiba University")
+  "worksFor"   (dict "@type" "EducationalOrganization" "name" .Site.Params.university_name_en)
 -}}
 
 {{- /* ── Organization (every page) ────────────────────────────────── */}}
 {{- $org := dict
   "@context"           "https://schema.org"
   "@type"              "Organization"
-  "name"               "量子ナノデバイス研究グループ"
-  "alternateName"      "Quantum Nanodevice Research Group (Aoki Lab)"
+  "name"               .Site.Params.lab_name_ja
+  "alternateName"      .Site.Params.lab_name_en_full
   "url"                .Site.BaseURL
   "parentOrganization" $parentOrg
   "address"            $address

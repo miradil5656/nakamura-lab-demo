@@ -50,6 +50,50 @@ Post-launch experiments and deferred work. These are NOT in scope for the initia
 
 ---
 
+## TODO-05: Customer Site Repo Strategy (1 customer = 1 fork)
+
+**What:** Document and codify the "1 customer = 1 fork of openclaw" operational model.
+
+**Why:** At scale, template updates (security fixes, Hugo upgrades, layout improvements) won't propagate back to customer forks automatically. Need a process before hitting 3+ customers.
+
+**Pros:** Each customer has fully isolated repo, independent Decap CMS permissions, independent Cloudflare Workers deploy, independent domain.
+
+**Cons:** Template bug fix = N manual cherry-picks. Customer customization drift vs template base is hard to track. No fleet-wide update story.
+
+**Context:** Design doc (`m99-main-design-20260418-110852.md`) chose Productized Service. Current 1 customer is forked. Decision affirmed: continue 1-customer-1-fork. Revisit before 3rd customer.
+
+**Steps (future, not now):**
+1. Write `FORK_CHECKLIST.md` in openclaw — what to rename per customer (wrangler name, baseURL, GitHub OAuth app_id, domain).
+2. Consider a `template-sync` script that cherry-picks a labeled commit range from openclaw into each customer fork.
+3. Before 3rd customer: evaluate if pain justifies moving to a branch-per-customer single-repo model.
+
+**Depends on / blocked by:** Nothing right now. Revisit at customer #3.
+
+---
+
+## TODO-06: LP Conversion Analytics — Cloudflare Web Analytics
+
+**What:** Add Cloudflare Web Analytics beacon to the LP (`/service/` page) to measure channel-level conversion (learn conference vs cold mail vs referral performance).
+
+**Why:** Design doc specifies "A/Bテスト: どのチャネルがCAC < LTVの20%に収まるか" in Phase 2. Without LP-level analytics, this test is unmeasurable.
+
+**Pros:** Free, zero cookies (no GDPR/法人policy concern), zero config code, shows unique visits and page paths.
+
+**Cons:** Cloudflare Analytics does not capture UTM parameters natively in the free dashboard. If UTM analysis is needed, upgrade path is Plausible ($9/mo) or GA4 (free but cookies).
+
+**Context:** LP added to existing openclaw repo at `/service/`. Cloudflare Workers deploy already in place. Beacon is one `<script>` tag in `layouts/partials/head.html` gated on `.IsHome` or a page param.
+
+**Steps:**
+1. Cloudflare dashboard → Analytics → Web Analytics → add site.
+2. Copy the `<script>` snippet.
+3. Add to `layouts/partials/head.html` behind `{{ if .Params.analytics }}`.
+4. Set `analytics: true` only in `content/service/_index.md` front matter (don't track customer lab sites with the operator's beacon).
+5. Verify post-deploy that beacon fires in Cloudflare dashboard.
+
+**Depends on / blocked by:** LP implementation (`/service/` page) must ship first.
+
+---
+
 ## TODO-02: ResearchProject JSON-LD Schema
 
 **What:** Add `ResearchProject` schema.org structured data to `/research/` and individual research theme pages.

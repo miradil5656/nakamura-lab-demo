@@ -8,19 +8,11 @@
     </p>
     <h1 class="font-display font-semibold text-white mb-4 js-hero-heading"
         style="font-size:clamp(2rem,4.5vw,3rem);line-height:1.07;letter-spacing:-0.28px">
-      {{- if eq .Language.Lang "ja" -}}
-      量子ナノデバイスの<br>フロンティアを探る
-      {{- else -}}
-      Exploring the Frontiers<br>of Quantum Nanodevices
-      {{- end -}}
+      {{ i18n "research_hero_line1" }}<br>{{ i18n "research_hero_line2" }}
     </h1>
     <p class="text-white/70 mx-auto js-hero-body"
        style="font-size:1.0625rem;line-height:1.47;letter-spacing:-0.022em;max-width:520px">
-      {{- if eq .Language.Lang "ja" -}}
-      2次元材料の量子輸送現象を研究し、次世代のナノスケール量子デバイスの実現を目指しています。
-      {{- else -}}
-      We investigate quantum transport phenomena in 2D materials toward next-generation nanoscale quantum devices.
-      {{- end -}}
+      {{ i18n "research_hero_body" }}
     </p>
   </div>
 </section>

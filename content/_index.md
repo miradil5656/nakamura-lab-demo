@@ -1,4 +1,4 @@
 ---
-title: "YOUR_LAB_NAME"
-description: "YOUR_UNIVERSITY YOUR_LAB_NAME の公式サイト。"
+title: "先端材料科学研究室"
+description: "東京工業大学 先端材料科学研究室の公式サイト。二次元材料・トポロジカル物性・スピントロニクスの研究を行っています。"
 ---

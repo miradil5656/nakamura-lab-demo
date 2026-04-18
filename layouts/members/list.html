@@ -8,11 +8,7 @@
     </p>
     <h1 class="font-display font-semibold text-white js-hero-heading"
         style="font-size:clamp(2rem,4.5vw,3rem);line-height:1.07;letter-spacing:-0.28px">
-      {{- if eq .Language.Lang "ja" -}}
-      量子ナノデバイス<br>研究グループ
-      {{- else -}}
-      Quantum Nanodevice<br>Research Group
-      {{- end -}}
+      {{ i18n "members_hero_line1" }}<br>{{ i18n "members_hero_line2" }}
     </h1>
   </div>
 </section>

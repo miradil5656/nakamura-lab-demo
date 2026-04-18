@@ -8,11 +8,7 @@
     </p>
     <h1 class="font-display font-semibold text-white js-hero-heading"
         style="font-size:clamp(2rem,4.5vw,3rem);line-height:1.07;letter-spacing:-0.28px">
-      {{- if eq .Language.Lang "ja" -}}
-      千葉大学<br>西千葉キャンパス
-      {{- else -}}
-      Chiba University<br>Nishi-Chiba Campus
-      {{- end -}}
+      {{ i18n "access_hero_line1" }}<br>{{ i18n "access_hero_line2" }}
     </h1>
   </div>
 </section>
@@ -35,20 +31,11 @@
             </p>
             <p class="font-display font-semibold mb-1"
                style="font-size:1.0625rem;letter-spacing:normal;color:#1d1d1f">
-              {{- if eq .Language.Lang "ja" -}}
-              量子ナノデバイス研究グループ（青木研究室）
-              {{- else -}}
-              Quantum Nanodevice Group (Aoki Lab)
-              {{- end -}}
+              {{ i18n "access_lab_full_name" }}
             </p>
             <p style="font-size:0.9375rem;line-height:1.7;color:rgba(0,0,0,0.6)">
-              {{- if eq .Language.Lang "ja" -}}
-              千葉大学 大学院融合理工学府<br>
-              先進理化学専攻 物質科学コース
-              {{- else -}}
-              Graduate School of Science and Engineering<br>
-              Department of Advanced Materials Science, Chiba University
-              {{- end -}}
+              {{ i18n "access_affiliation_line1" }}<br>
+              {{ i18n "access_affiliation_line2" }}
             </p>
           </div>
 
@@ -57,17 +44,7 @@
               {{- if eq .Language.Lang "ja" }}所在地{{ else }}Address{{ end -}}
             </p>
             <p style="font-size:0.9375rem;line-height:1.7;color:rgba(0,0,0,0.7)">
-              {{- if eq .Language.Lang "ja" -}}
-              〒263-8522<br>
-              千葉市稲毛区弥生町1-33<br>
-              千葉大学 西千葉キャンパス<br>
-              理学系総合研究棟
-              {{- else -}}
-              Science Research Building<br>
-              Chiba University, Nishi-Chiba Campus<br>
-              1-33 Yayoi-cho, Inage-ku<br>
-              Chiba 263-8522, Japan
-              {{- end -}}
+              {{ i18n "access_address_html" | safeHTML }}
             </p>
           </div>
 
@@ -76,7 +53,7 @@
               {{- if eq .Language.Lang "ja" }}メール{{ else }}Email{{ end -}}
             </p>
             <p style="font-size:0.9375rem;color:rgba(0,0,0,0.7);font-family:monospace">
-              aoki_at_faculty.chiba-u.jp
+              {{ .Site.Params.email_user }}<span class="select-none" aria-hidden="true">_at_</span>{{ .Site.Params.email_domain }}
             </p>
             <p style="font-size:0.8125rem;color:rgba(0,0,0,0.4);margin-top:0.25rem">
               {{- if eq .Language.Lang "ja" -}}
@@ -119,13 +96,7 @@
               {{- if eq .Language.Lang "ja" }}電車でのアクセス{{ else }}By Train{{ end -}}
             </p>
             <ul style="font-size:0.9375rem;line-height:1.8;color:rgba(0,0,0,0.65)" class="space-y-1">
-              {{- if eq .Language.Lang "ja" -}}
-              <li>JR総武線「西千葉」駅より徒歩約3分</li>
-              <li>京成線「みどり台」駅より徒歩約7分</li>
-              {{- else -}}
-              <li>3 min walk from JR Sobu Line "Nishi-Chiba" Station</li>
-              <li>7 min walk from Keisei Line "Midoridai" Station</li>
-              {{- end -}}
+              <li>{{ i18n "access_train_directions" }}</li>
             </ul>
           </div>
 
@@ -134,11 +105,7 @@
               {{- if eq .Language.Lang "ja" }}お車でのアクセス{{ else }}By Car{{ end -}}
             </p>
             <p style="font-size:0.9375rem;line-height:1.7;color:rgba(0,0,0,0.65)">
-              {{- if eq .Language.Lang "ja" -}}
-              京葉道路「穴川」ICより約10分。キャンパス内に有料駐車場あり（事前申請が必要な場合があります）。
-              {{- else -}}
-              About 10 min from Keiyo Expressway "Anagawa" interchange. Paid parking available on campus (advance reservation may be required).
-              {{- end -}}
+              {{ i18n "access_car_directions" }}
             </p>
           </div>
         </div>
@@ -165,7 +132,7 @@
       Prospective graduate students interested in joining our lab are encouraged to reach out by email. We welcome inquiries from international applicants.
       {{- end -}}
     </p>
-    <a href="mailto:aoki_at_faculty.chiba-u.jp" class="btn-pill-dark">
+    <a href="mailto:{{ .Site.Params.email_user }}@{{ .Site.Params.email_domain }}" class="btn-pill-dark">
       {{- if eq .Language.Lang "ja" }}メールで問い合わせる{{ else }}Get in touch{{ end -}}
     </a>
   </div>
