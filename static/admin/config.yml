@@ -2,9 +2,7 @@ backend:
   name: github
   repo: miradil5656/nakamura-lab-demo
   branch: main
-  auth_type: pkce           # PKCE OAuth — no server proxy required
-  app_id: Ov23lid9GvzWU2XE28PT
-  # base_url: https://your-lab.example.com
+  base_url: https://nakamura-lab-demo-auth.miradild404.workers.dev
 
 media_folder: static/images/uploads
 public_folder: /images/uploads

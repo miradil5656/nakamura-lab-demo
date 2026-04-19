@@ -1,0 +1,5 @@
+{
+  "name": "nakamura-lab-demo-auth",
+  "main": "auth-worker/index.js",
+  "compatibility_date": "2026-04-17"
+}
