@@ -71,3 +71,4 @@ jobs:
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
           accountId: 25e73401d1508e0b785fbb34e4159841
+          wranglerVersion: '4.83.0'
