@@ -50,5 +50,24 @@ jobs:
           path: public/
           retention-days: 1
 
-  # Deploy and smoke-test are handled by Cloudflare Pages Direct Git integration.
-  # No GitHub Actions deploy job needed.
+  deploy:
+    name: Deploy to Cloudflare Workers
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: public
+          path: public/
+
+      - name: Deploy via Wrangler
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CF_API_TOKEN }}
+          accountId: 25e73401d1508e0b785fbb34e4159841
