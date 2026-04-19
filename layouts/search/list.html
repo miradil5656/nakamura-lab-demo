@@ -10,7 +10,7 @@
 */}}
 
 {{- /* Pagefind CSS — load early to avoid flash */}}
-<link rel="stylesheet" href="{{ "/pagefind/pagefind-ui.css" | absURL }}">
+<link rel="stylesheet" href="{{ "/pagefind/pagefind-ui.css" | relURL }}">
 
 <style>
   /* ── Pagefind theme override — match Apple design system ───────────── */
@@ -70,7 +70,7 @@
 </section>
 
 {{- /* Pagefind UI script */}}
-<script src="{{ "/pagefind/pagefind-ui.js" | absURL }}"></script>
+<script src="{{ "/pagefind/pagefind-ui.js" | relURL }}"></script>
 <script>
 (function () {
   'use strict';
