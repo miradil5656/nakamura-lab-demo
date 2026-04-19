@@ -70,6 +70,14 @@ export default {
       }
     }
 
+    if (url.pathname === '/debug') {
+      return new Response(JSON.stringify({
+        has_client_id: !!env.GITHUB_CLIENT_ID,
+        has_client_secret: !!env.GITHUB_CLIENT_SECRET,
+        client_id_prefix: env.GITHUB_CLIENT_ID ? env.GITHUB_CLIENT_ID.slice(0, 6) : null,
+      }), { headers: { 'Content-Type': 'application/json' } });
+    }
+
     return new Response('Not Found', { status: 404 });
   },
 };
@@ -77,12 +85,30 @@ export default {
 function postMessagePage(origin, status, content) {
   const msg = `authorization:github:${status}:${JSON.stringify(content)}`;
   return new Response(
-    `<!DOCTYPE html><html><body><script>
+    `<!DOCTYPE html><html><body>
+<p id="st" style="font-family:monospace;padding:1rem"></p>
+<script>
 (function(){
   var msg=${JSON.stringify(msg)};
-  var origin=${JSON.stringify(origin)};
-  if(window.opener){window.opener.postMessage(msg,origin);window.close();}
-  else{document.write('<p>Auth complete. You may close this window.</p>');}
+  var allowedOrigin=${JSON.stringify(origin)};
+  var st=document.getElementById('st');
+  st.textContent='opener: '+(window.opener?'YES':'NO')+' | waiting for handshake...';
+  if(!window.opener){
+    st.textContent+=' | opener null — cannot postMessage';
+    return;
+  }
+  function receiveMessage(e){
+    // CMS sends "authorizing:github" to initiate handshake
+    if(typeof e.data !== 'string' || e.data.indexOf('authorizing:github') !== 0) return;
+    st.textContent='handshake received from '+e.origin+' | sending token';
+    // Reply to the origin that sent the handshake
+    e.source.postMessage(msg, e.origin);
+    window.removeEventListener('message', receiveMessage, false);
+    setTimeout(function(){window.close();},1000);
+  }
+  window.addEventListener('message', receiveMessage, false);
+  // Announce readiness to opener (wildcard origin for initial handshake is expected by CMS)
+  window.opener.postMessage('authorizing:github', '*');
 })();
 </script></body></html>`,
     { headers: { 'Content-Type': 'text/html; charset=utf-8' } }
